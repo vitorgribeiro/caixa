@@ -1,6 +1,105 @@
 {
 	"@type":"Hierarchy",
 	"Name":"ALL.D.Segmento",
-	"Elements":[],
+	"Elements":
+	[
+		{
+			"Name":"Total_Segmento",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"PF",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"PJ",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Private",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Singular",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Média Renda",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Massificado / Social",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"MPE",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Corporate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Governo",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"N/A",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total_Segmento",
+			"ComponentName":"PF",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total_Segmento",
+			"ComponentName":"PJ",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total_Segmento",
+			"ComponentName":"Governo",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total_Segmento",
+			"ComponentName":"N/A",
+			"Weight":1
+		},
+		{
+			"ParentName":"PF",
+			"ComponentName":"Private",
+			"Weight":1
+		},
+		{
+			"ParentName":"PF",
+			"ComponentName":"Singular",
+			"Weight":1
+		},
+		{
+			"ParentName":"PF",
+			"ComponentName":"Média Renda",
+			"Weight":1
+		},
+		{
+			"ParentName":"PF",
+			"ComponentName":"Massificado / Social",
+			"Weight":1
+		},
+		{
+			"ParentName":"PJ",
+			"ComponentName":"MPE",
+			"Weight":1
+		},
+		{
+			"ParentName":"PJ",
+			"ComponentName":"Corporate",
+			"Weight":1
+		}
+	],
 	"Subsets@Code.links":[]
 }

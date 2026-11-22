@@ -16,27 +16,11 @@
 			"@id":"Dimensions('ALL.D.Produto')"
 		},
 		{
-			"@id":"Dimensions('ALL.D.Canal')"
-		},
-		{
-			"@id":"Dimensions('ALL.D.Prazo')"
-		},
-		{
-			"@id":"Dimensions('ALL.D.Tipo_Pessoa')"
+			"@id":"Dimensions('ALL.D.Segmento')"
 		},
 		{
 			"@id":"Dimensions('CRT.M.030.Carteira_Existentes')"
 		}
 	],
-	"Rules@Code.link":"CRT.030.Carteira_Existentes.rules",
-	"Views@Code.links":
-	[
-		"CRT.030.Carteira_Existentes.views/RPT.Tela1_Carga_Existentes.json",
-		"CRT.030.Carteira_Existentes.views/RPT.Tela4_Triangulo_Existentes.json",
-		"CRT.030.Carteira_Existentes.views/Tela_01_Carga_View_01_Pivot_Carga_por_Safra.json",
-		"CRT.030.Carteira_Existentes.views/Tela_03_Existentes_View_01_Pivot_Carteira_Mensal.json",
-		"CRT.030.Carteira_Existentes.views/Tela_03_Existentes_View_02_Grafico_Coluna_Juros_por_Ano.json",
-		"CRT.030.Carteira_Existentes.views/Tela_03_Existentes_View_03_Grafico_Coluna_Saldo_no_Tempo.json",
-		"CRT.030.Carteira_Existentes.views/Tela_03_Existentes_View_04_Pivot_Saldo_por_Safra.json"
-	]
+	"Views@Code.links":[]
 }

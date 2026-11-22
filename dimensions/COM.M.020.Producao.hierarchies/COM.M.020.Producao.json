@@ -30,6 +30,18 @@
 		{
 			"Name":"Valor Financiado Total",
 			"Type":"Numeric"
+		},
+		{
+			"Name":"Prazo Médio",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"% Taxa",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Juros",
+			"Type":"Numeric"
 		}
 	],
 	"Subsets@Code.links":

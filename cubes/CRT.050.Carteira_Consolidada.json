@@ -19,23 +19,8 @@
 			"@id":"Dimensions('ALL.D.Produto')"
 		},
 		{
-			"@id":"Dimensions('ALL.D.Canal')"
-		},
-		{
-			"@id":"Dimensions('ALL.D.Prazo')"
-		},
-		{
 			"@id":"Dimensions('CRT.M.050.Carteira_Consolidada')"
 		}
 	],
-	"Rules@Code.link":"CRT.050.Carteira_Consolidada.rules",
-	"Views@Code.links":
-	[
-		"CRT.050.Carteira_Consolidada.views/RPT.Tela6_Consolidado.json",
-		"CRT.050.Carteira_Consolidada.views/Tela_05_Cenarios_View_03_Grafico_Linha_Saldo_por_Cenario.json",
-		"CRT.050.Carteira_Consolidada.views/Tela_06_Consolidado_View_01_Pivot_Origem_Mensal.json",
-		"CRT.050.Carteira_Consolidada.views/Tela_07_Cons_Safra_View_01_Grafico_Linha_Saldo_por_Origem.json",
-		"CRT.050.Carteira_Consolidada.views/Tela_07_Cons_Safra_View_02_Grafico_Pizza_Juros_Origem.json",
-		"CRT.050.Carteira_Consolidada.views/Tela_07_Cons_Safra_View_03_Pivot_Triangulo_Vintage.json"
-	]
+	"Views@Code.links":[]
 }
