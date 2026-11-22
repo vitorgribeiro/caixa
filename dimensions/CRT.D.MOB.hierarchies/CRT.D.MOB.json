@@ -1,0 +1,666 @@
+{
+	"@type":"Hierarchy",
+	"Name":"CRT.D.MOB",
+	"Elements":
+	[
+		{
+			"Name":"Total MOB",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"4",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"5",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"6",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"7",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"8",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"9",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"10",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"11",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"12",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"13",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"14",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"15",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"16",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"17",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"18",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"19",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"20",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"21",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"22",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"23",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"24",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"25",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"26",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"27",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"28",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"29",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"30",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"31",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"33",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"34",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"35",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"36",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"37",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"38",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"39",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"40",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"41",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"42",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"43",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"44",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"45",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"46",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"47",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"48",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"49",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"50",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"51",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"52",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"53",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"54",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"55",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"56",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"57",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"58",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"59",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"60",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"61",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"62",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"63",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"64",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"65",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"66",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"67",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"68",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"69",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"70",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"71",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"72",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"5",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"6",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"7",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"8",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"9",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"10",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"11",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"12",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"13",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"14",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"15",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"16",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"17",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"18",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"19",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"20",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"21",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"22",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"23",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"24",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"25",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"26",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"27",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"28",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"29",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"30",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"31",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"32",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"33",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"34",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"35",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"36",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"37",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"38",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"39",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"40",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"41",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"42",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"43",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"44",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"45",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"46",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"47",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"48",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"49",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"50",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"51",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"52",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"53",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"54",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"55",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"56",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"57",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"58",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"59",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"60",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"61",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"62",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"63",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"64",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"65",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"66",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"67",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"68",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"69",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"70",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"71",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total MOB",
+			"ComponentName":"72",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"CRT.D.MOB.subsets/zMOB_Leaf.json"
+	]
+}

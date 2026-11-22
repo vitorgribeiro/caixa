@@ -1,0 +1,68 @@
+#region Prolog
+sMoney='#,##0.00'; sCount='#,##0'; sPct='0.00%';
+
+#=== CRT.M.040
+d='CRT.M.040.Carteira_Novos';
+AttrInsert(d,'','Format','S');
+AttrPutS(sMoney,d,'Valor Financiado','Format');
+AttrPutS(sMoney,d,'Saldo Inicial','Format');
+AttrPutS(sMoney,d,'(+) Juros','Format');
+AttrPutS(sMoney,d,'(-) Amortizacao','Format');
+AttrPutS(sMoney,d,'(-) LA Full','Format');
+AttrPutS(sMoney,d,'(-) LA Parcial','Format');
+AttrPutS(sMoney,d,'(-) WO','Format');
+AttrPutS(sMoney,d,'Saldo Final','Format');
+AttrPutS(sCount,d,'Volume','Format');
+AttrPutS(sCount,d,'SYS.MOB','Format');
+
+#=== CRT.M.050
+d='CRT.M.050.Carteira_Consolidada';
+AttrInsert(d,'','Format','S');
+AttrPutS(sMoney,d,'Saldo Inicial','Format');
+AttrPutS(sMoney,d,'(+) Juros','Format');
+AttrPutS(sMoney,d,'(-) Amortizacao','Format');
+AttrPutS(sMoney,d,'(-) LA Total','Format');
+AttrPutS(sMoney,d,'(-) WO','Format');
+AttrPutS(sMoney,d,'Saldo Final','Format');
+
+#=== REC.M.100
+d='REC.M.100.Receita_Financeira';
+AttrInsert(d,'','Format','S');
+AttrPutS(sMoney,d,'Saldo Medio','Format');
+AttrPutS(sMoney,d,'(+) Juros Carteira','Format');
+AttrPutS(sMoney,d,'(-) Custo Funding','Format');
+AttrPutS(sMoney,d,'(=) Margem Financeira','Format');
+
+#=== COM.M.020
+d='COM.M.020.Producao';
+AttrInsert(d,'','Format','S');
+AttrPutS(sCount,d,'Qtd Contratos','Format');
+AttrPutS(sMoney,d,'Ticket Medio','Format');
+AttrPutS(sPct,d,'% Entrada','Format');
+AttrPutS(sPct,d,'% Mix Prazo','Format');
+AttrPutS(sMoney,d,'Valor do Bem Total','Format');
+AttrPutS(sMoney,d,'Valor Entrada','Format');
+AttrPutS(sMoney,d,'Valor Financiado Total','Format');
+
+#=== COM.M.010
+d='COM.M.010.Mercado';
+AttrInsert(d,'','Format','S');
+AttrPutS(sCount,d,'Mercado Ano Anterior','Format');
+AttrPutS(sPct,d,'% Crescimento Mercado','Format');
+AttrPutS(sPct,d,'% Penetracao','Format');
+AttrPutS(sCount,d,'Qtd Contratos','Format');
+
+#=== CRT.M.010
+d='CRT.M.010.Premissas_Calendario';
+AttrInsert(d,'','Format','S');
+AttrPutS(sPct,d,'% Taxa Cliente','Format');
+AttrPutS(sPct,d,'% Custo Funding','Format');
+
+#=== CRT.M.015
+d='CRT.M.015.Premissas_Safra';
+AttrInsert(d,'','Format','S');
+AttrPutS(sPct,d,'% Runoff','Format');
+AttrPutS(sPct,d,'% LA Full','Format');
+AttrPutS(sPct,d,'% LA Parcial','Format');
+AttrPutS(sPct,d,'% WO','Format');
+#endregion

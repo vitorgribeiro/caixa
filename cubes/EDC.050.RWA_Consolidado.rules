@@ -1,0 +1,56 @@
+FEEDSTRINGS;
+SKIPCHECK;
+
+### CALCULA APENAS NAS CALCULADAS
+[]=N:IF( ELISANC( 'ALL.D.Versao', 'Versoes Dinamicas', !ALL.D.Versao )<>0
+  , CONTINUE
+  , STET );
+
+#### VIRADA DE CHAVE
+[]=N:IF( DB( 'PRE.001.Premissas_Gerais', !ALL.D.Calendario, !ALL.D.Versao, 'Real x Orcado' )@='Real', ['ALL.D.Versao':'ALL.D.Versao':'RE'], CONTINUE );
+
+### RWA Crédito
+['EDC.050.RWA_Consolidado':'EDC.050.RWA_Consolidado':'RWA Empréstimo Pessoal']=N:DB( 'EDC.010.RWA_Fator', !ALL.D.Calendario, !ALL.D.Versao, 'Emprestimo Pessoal', 'Base RWPAD' );
+
+['EDC.050.RWA_Consolidado':'EDC.050.RWA_Consolidado':'RWA Veículos']=N:DB( 'EDC.010.RWA_Fator', !ALL.D.Calendario, !ALL.D.Versao, 'Veiculos', 'Base RWPAD' );
+
+### RWA Operacional
+['EDC.050.RWA_Consolidado':'EDC.050.RWA_Consolidado':'RWA Operacional']=N:
+  ['EDC.050.RWA_Consolidado':'EDC.050.RWA_Consolidado':'Média Receita Bruta']*
+  ['% Basic Indicator Approach'];
+
+### RWA Mercado
+['EDC.050.RWA_Consolidado':'EDC.050.RWA_Consolidado':'RWA Mercado']=N:['EDC.050.RWA_Consolidado':'EDC.050.RWA_Consolidado':'RWA Crédito']*
+['EDC.050.RWA_Consolidado':'EDC.050.RWA_Consolidado':'% RWA Mercado'];
+
+### Ponderadores
+
+['% RWA Mercado']=C:['EDC.050.RWA_Consolidado':'EDC.050.RWA_Consolidado':'RWA Mercado']\['EDC.050.RWA_Consolidado':'EDC.050.RWA_Consolidado':'RWA Crédito'];
+['EDC.050.RWA_Consolidado':'EDC.050.RWA_Consolidado':'% Basic Indicator Approach'] =C:['EDC.050.RWA_Consolidado':'EDC.050.RWA_Consolidado':'RWA Operacional']\['EDC.050.RWA_Consolidado':'EDC.050.RWA_Consolidado':'Média Receita Bruta'];
+
+
+# ['EDC.050.RWA_Consolidado':'EDC.050.RWA_Consolidado':'Média Receita Bruta'] = N:
+
+#   If ( ELISANC ( 'ALL.D.Calendario', '2026', !ALL.D.Calendario)<>0 , 
+#   DB('REC.100.Receita_Financeira', '2026', 'ALL.D.Safra':'Total Safra', !ALL.D.Versao, 'ALL.D.Produto':'Total Produto', 'ALL.D.Canal':'Total Canal', '(+) Juros Carteira' ), continue);
+
+FEEDERS;
+
+### FEEDER DE VIRADA DE CHAVE
+['ALL.D.Versao':'ALL.D.Versao':'RE']=>['ALL.D.Versao':'ALL.D.Versao':'Versoes Dinamicas'];
+
+
+### FEEDER RWA Operacional
+['ALL.D.Versao':'ALL.D.Versao':'Versoes Dinamicas','EDC.050.RWA_Consolidado':'EDC.050.RWA_Consolidado':'% Basic Indicator Approach']=>['RWA Operacional'];
+
+### FEEDER RWA Mercado
+['ALL.D.Versao':'ALL.D.Versao':'Versoes Dinamicas','EDC.050.RWA_Consolidado':'EDC.050.RWA_Consolidado':'% RWA Mercado']=>['RWA Mercado'];
+
+### FEEDERS EXTERNOS
+['ALL.D.Versao':'ALL.D.Versao':'Versoes Dinamicas',
+'EDC.050.RWA_Consolidado':'EDC.050.RWA_Consolidado':'RWA Crédito']=>DB( 'EDC.100.Estudo_Capital', !ALL.D.Calendario, !ALL.D.Versao, 'RWA Crédito' );
+  
+['ALL.D.Versao':'ALL.D.Versao':'Versoes Dinamicas',
+ {'EDC.050.RWA_Consolidado':'EDC.050.RWA_Consolidado':'RWA Crédito',
+  'EDC.050.RWA_Consolidado':'EDC.050.RWA_Consolidado':'RWA Operacional',
+  'EDC.050.RWA_Consolidado':'EDC.050.RWA_Consolidado':'RWA Mercado'}]=>DB( 'EDC.100.Estudo_Capital', !ALL.D.Calendario, !ALL.D.Versao, !EDC.050.RWA_Consolidado );

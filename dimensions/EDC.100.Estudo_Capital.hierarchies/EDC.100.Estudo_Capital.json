@@ -1,0 +1,233 @@
+{
+	"@type":"Hierarchy",
+	"Name":"EDC.100.Estudo_Capital",
+	"Elements":
+	[
+		{
+			"Name":"Capital Nivel I (CET1 + AT1)",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Capital Principal (CET1)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Capital Adicional Nível 1 (AT1)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Capital Nível II (Tier 2 / T2)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"RWA Crédito",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"RWA Operacional",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"RWA Mercado",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Indíce de Basileia (PR Total / RWA)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CET1 / RWA - Capital Principal",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"% Capital Mínimo Total",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"% Índice de Basileia (PR / RWA Total) - Mínimo",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Capital Mínimo",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"% Adicional de Capital Principal",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Adicional de Capital Principal",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Capital Mínimo Total",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Folga/Insuficiência de Capital",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"% Índice de Basileia (PR / RWA Total) - Interno",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Meta Interna do Banco",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PR Total Disponível",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PATRIMÔNIO DE REFERÊNCIA",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"PR TOTAL (Nível I + Nível II)",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"RWA TOTAL",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"ÍNDICES DE CAPITAL (BASILEIA III)",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"ADEQUAÇÃO DE CAPITAL",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"% Folga/Insuficiência de Capital",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Status",
+			"Type":"String"
+		},
+		{
+			"Name":"Nível I (CET1+AT1) / RWA",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Estresse",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Capital Nivel I (CET1 + AT1)",
+			"ComponentName":"Capital Principal (CET1)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Capital Nivel I (CET1 + AT1)",
+			"ComponentName":"Capital Adicional Nível 1 (AT1)",
+			"Weight":1
+		},
+		{
+			"ParentName":"% Capital Mínimo Total",
+			"ComponentName":"% Índice de Basileia (PR / RWA Total) - Mínimo",
+			"Weight":1
+		},
+		{
+			"ParentName":"% Capital Mínimo Total",
+			"ComponentName":"% Adicional de Capital Principal",
+			"Weight":1
+		},
+		{
+			"ParentName":"Capital Mínimo Total",
+			"ComponentName":"Capital Mínimo",
+			"Weight":1
+		},
+		{
+			"ParentName":"Capital Mínimo Total",
+			"ComponentName":"Adicional de Capital Principal",
+			"Weight":1
+		},
+		{
+			"ParentName":"PATRIMÔNIO DE REFERÊNCIA",
+			"ComponentName":"PR TOTAL (Nível I + Nível II)",
+			"Weight":1
+		},
+		{
+			"ParentName":"PR TOTAL (Nível I + Nível II)",
+			"ComponentName":"Capital Nivel I (CET1 + AT1)",
+			"Weight":1
+		},
+		{
+			"ParentName":"PR TOTAL (Nível I + Nível II)",
+			"ComponentName":"Capital Nível II (Tier 2 / T2)",
+			"Weight":1
+		},
+		{
+			"ParentName":"RWA TOTAL",
+			"ComponentName":"RWA Crédito",
+			"Weight":1
+		},
+		{
+			"ParentName":"RWA TOTAL",
+			"ComponentName":"RWA Operacional",
+			"Weight":1
+		},
+		{
+			"ParentName":"RWA TOTAL",
+			"ComponentName":"RWA Mercado",
+			"Weight":1
+		},
+		{
+			"ParentName":"ÍNDICES DE CAPITAL (BASILEIA III)",
+			"ComponentName":"Indíce de Basileia (PR Total / RWA)",
+			"Weight":0
+		},
+		{
+			"ParentName":"ÍNDICES DE CAPITAL (BASILEIA III)",
+			"ComponentName":"CET1 / RWA - Capital Principal",
+			"Weight":0
+		},
+		{
+			"ParentName":"ÍNDICES DE CAPITAL (BASILEIA III)",
+			"ComponentName":"Nível I (CET1+AT1) / RWA",
+			"Weight":0
+		},
+		{
+			"ParentName":"ADEQUAÇÃO DE CAPITAL",
+			"ComponentName":"% Capital Mínimo Total",
+			"Weight":0
+		},
+		{
+			"ParentName":"ADEQUAÇÃO DE CAPITAL",
+			"ComponentName":"Capital Mínimo Total",
+			"Weight":0
+		},
+		{
+			"ParentName":"ADEQUAÇÃO DE CAPITAL",
+			"ComponentName":"PR Total Disponível",
+			"Weight":0
+		},
+		{
+			"ParentName":"ADEQUAÇÃO DE CAPITAL",
+			"ComponentName":"% Folga/Insuficiência de Capital",
+			"Weight":0
+		},
+		{
+			"ParentName":"ADEQUAÇÃO DE CAPITAL",
+			"ComponentName":"Folga/Insuficiência de Capital",
+			"Weight":0
+		},
+		{
+			"ParentName":"ADEQUAÇÃO DE CAPITAL",
+			"ComponentName":"% Índice de Basileia (PR / RWA Total) - Interno",
+			"Weight":0
+		},
+		{
+			"ParentName":"ADEQUAÇÃO DE CAPITAL",
+			"ComponentName":"Meta Interna do Banco",
+			"Weight":0
+		}
+	],
+	"Subsets@Code.links":[]
+}

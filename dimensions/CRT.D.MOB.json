@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"CRT.D.MOB",
+	"Hierarchies@Code.links":
+	[
+		"CRT.D.MOB.hierarchies/CRT.D.MOB.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('CRT.D.MOB')/Hierarchies('CRT.D.MOB')"
+	}
+}

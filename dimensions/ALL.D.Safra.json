@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"ALL.D.Safra",
+	"Hierarchies@Code.links":
+	[
+		"ALL.D.Safra.hierarchies/ALL.D.Safra.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('ALL.D.Safra')/Hierarchies('ALL.D.Safra')"
+	}
+}

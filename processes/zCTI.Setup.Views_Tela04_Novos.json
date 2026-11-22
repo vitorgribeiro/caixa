@@ -1,0 +1,12 @@
+{
+	"@type":"Process",
+	"Name":"zCTI.Setup.Views_Tela04_Novos",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"zCTI.Setup.Views_Tela04_Novos.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}

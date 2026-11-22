@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"SYS.Sel_TP_Tot",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('ALL.D.Tipo_Pessoa')/Hierarchies('ALL.D.Tipo_Pessoa')/Elements('Total Tipo Pessoa')"
+		}
+	]
+}

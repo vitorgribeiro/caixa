@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"ALL.D.Calendario",
+	"Hierarchies@Code.links":
+	[
+		"ALL.D.Calendario.hierarchies/ALL.D.Calendario.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('ALL.D.Calendario')/Hierarchies('ALL.D.Calendario')"
+	}
+}

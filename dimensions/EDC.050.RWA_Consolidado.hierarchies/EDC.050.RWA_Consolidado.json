@@ -1,0 +1,81 @@
+{
+	"@type":"Hierarchy",
+	"Name":"EDC.050.RWA_Consolidado",
+	"Elements":
+	[
+		{
+			"Name":"RWA Crédito",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"RWA Empréstimo Pessoal",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"RWA Veículos",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Outros Ativos",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"% Basic Indicator Approach",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"RWA Operacional",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"% RWA Mercado",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"RWA Mercado",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"RWA Total",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Média Receita Bruta",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"RWA Crédito",
+			"ComponentName":"RWA Empréstimo Pessoal",
+			"Weight":1
+		},
+		{
+			"ParentName":"RWA Crédito",
+			"ComponentName":"RWA Veículos",
+			"Weight":1
+		},
+		{
+			"ParentName":"RWA Crédito",
+			"ComponentName":"Outros Ativos",
+			"Weight":1
+		},
+		{
+			"ParentName":"RWA Total",
+			"ComponentName":"RWA Crédito",
+			"Weight":1
+		},
+		{
+			"ParentName":"RWA Total",
+			"ComponentName":"RWA Operacional",
+			"Weight":1
+		},
+		{
+			"ParentName":"RWA Total",
+			"ComponentName":"RWA Mercado",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

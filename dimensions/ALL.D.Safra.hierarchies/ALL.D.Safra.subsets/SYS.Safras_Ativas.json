@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"SYS.Safras_Ativas",
+	"Expression":"{ [ALL.D.Safra].[2023/03] : [ALL.D.Safra].[2025/01] }"
+}

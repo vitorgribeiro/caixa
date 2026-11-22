@@ -1,0 +1,147 @@
+FEEDSTRINGS;
+SKIPCHECK;
+
+### CALCULA APENAS NAS CALCULADAS
+[]=N:IF( ELISANC( 'ALL.D.Versao', 'Versoes Dinamicas', !ALL.D.Versao )<>0
+  , CONTINUE
+  , STET );
+
+#### VIRADA DE CHAVE
+[]=N:IF( DB( 'PRE.001.Premissas_Gerais', !ALL.D.Calendario, !ALL.D.Versao, 'Real x Orcado' )@='Real', ['ALL.D.Versao':'ALL.D.Versao':'RE'], CONTINUE );
+
+#### INTEGRAÇÃO RWA
+['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'RWA Crédito']=N:
+  DB( 'EDC.050.RWA_Consolidado', !ALL.D.Calendario, !ALL.D.Versao, 'RWA Crédito' );
+
+['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'RWA Operacional']=N:
+  DB( 'EDC.050.RWA_Consolidado', !ALL.D.Calendario, !ALL.D.Versao, 'RWA Operacional' );
+
+['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'RWA Mercado']=N:
+  DB( 'EDC.050.RWA_Consolidado', !ALL.D.Calendario, !ALL.D.Versao, 'RWA Mercado' );
+
+
+
+
+######## CALCULOS ESTUDO DE CAPITAL ########
+
+### INDICE DE BASILEIA (PR TOTAL / RWA)
+['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Indíce de Basileia (PR Total / RWA)'] =['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'PR Total Disponível']\['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'RWA TOTAL'];
+
+### CET1 / RWA — Capital Principal
+['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'CET1 / RWA - Capital Principal']= ['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Capital Principal (CET1)']\['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'RWA TOTAL'];
+
+### Nível I (CET1+AT1) / RWA
+['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Nível I (CET1+AT1) / RWA']=['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Capital Nivel I (CET1 + AT1)']\['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'RWA TOTAL'];
+
+### Capital Mínimo
+['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Capital Mínimo']=N:
+  ['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'RWA TOTAL']*
+  ['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'% Índice de Basileia (PR / RWA Total) - Mínimo'];
+
+
+### Acicional de Capital Principal
+['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Adicional de Capital Principal']=N:
+  ['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'RWA TOTAL']*
+  ['% Adicional de Capital Principal'];
+
+### Folga/Insuficiência de Capital
+['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Folga/Insuficiência de Capital']=N:
+  ['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'PR Total Disponível']-['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Capital Mínimo Total'];
+
+### % Folga/Insuficiência de Capital
+  ['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'% Folga/Insuficiência de Capital']=
+    ['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Folga/Insuficiência de Capital']\
+    ['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'RWA TOTAL'];
+
+### Meta Interna Banco
+['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Meta Interna do Banco']=N:
+  ['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'RWA TOTAL']*
+  ['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'% Índice de Basileia (PR / RWA Total) - Interno'];
+
+### PR Total Disponível
+['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'PR Total Disponível']=N:
+  IF(['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Estresse']<>0
+  ,['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'PR TOTAL (Nível I + Nível II)']*['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Estresse']
+  ,['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'PR TOTAL (Nível I + Nível II)']
+  );
+
+### Status
+['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Status']=S:
+  IF(['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Indíce de Basileia (PR Total / RWA)']>=
+  ['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'% Índice de Basileia (PR / RWA Total) - Interno']
+  ,'Acima da Meta'
+  ,CONTINUE
+  );
+
+['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Status']=S:
+  IF(['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Indíce de Basileia (PR Total / RWA)']>=
+  ['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'% Capital Mínimo Total']
+  ,'Acima da Mínimo'
+  ,'Insuficiente'
+  );
+
+#### Ponderadores Percentuais
+
+## % Adic. Capital Principal
+['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'% Adicional de Capital Principal']=C:
+  ['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Adicional de Capital Principal']\
+  ['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'RWA TOTAL'];
+
+## % Índice de Basileia (PR / RWA Total) - Mínimo
+['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'% Índice de Basileia (PR / RWA Total) - Mínimo']=C:
+  ['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Capital Mínimo']\
+    ['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'RWA TOTAL'];
+
+### % Índice de Basileia (PR / RWA Total) - Interno
+['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'% Índice de Basileia (PR / RWA Total) - Interno']=C:
+  ['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Meta Interna do Banco']\
+    ['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'RWA TOTAL'];
+
+['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'% Capital Mínimo Total']=C:['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Capital Mínimo Total']\['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'RWA TOTAL'];
+
+['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Estresse']=C: ConsolidatedAvg( 2, 'EDC.100.Estudo_Capital', !ALL.D.Calendario, !ALL.D.Versao, !EDC.100.Estudo_Capital );
+
+
+FEEDERS;
+
+### FEEDER DE VIRADA DE CHAVE
+['ALL.D.Versao':'ALL.D.Versao':'RE']=>['ALL.D.Versao':'ALL.D.Versao':'Versoes Dinamicas'];
+
+### FEEDR INDICE DE BASILEIA (PR TOTAL / RWA)
+
+['ALL.D.Versao':'ALL.D.Versao':'Versoes Dinamicas','EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'RWA TOTAL']=>['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Indíce de Basileia (PR Total / RWA)'];
+
+### FEEDER CET1 / RWA — Capital Principal
+['ALL.D.Versao':'ALL.D.Versao':'Versoes Dinamicas','EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'RWA TOTAL']=>
+['ALL.D.Versao':'ALL.D.Versao':'Versoes Dinamicas','EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'CET1 / RWA - Capital Principal'];
+
+### FEEDER Nível I (CET1+AT1) / RWA
+['ALL.D.Versao':'ALL.D.Versao':'Versoes Dinamicas','EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'RWA TOTAL']=>['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Nível I (CET1+AT1) / RWA'];
+
+### FEEDER Capital Mínimo
+['ALL.D.Versao':'ALL.D.Versao':'Versoes Dinamicas','EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'RWA TOTAL']=>
+  ['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Capital Mínimo'];  
+
+### FEEDER Acicional de Capital Principal
+['ALL.D.Versao':'ALL.D.Versao':'Versoes Dinamicas','EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'RWA TOTAL']=>
+ ['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Adicional de Capital Principal']; 
+
+### FEEDER Folga/Insuficiência de Capital
+['ALL.D.Versao':'ALL.D.Versao':'Versoes Dinamicas','EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'PR Total Disponível']=>  
+['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Folga/Insuficiência de Capital'],
+  ['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'% Folga/Insuficiência de Capital'];
+  
+['ALL.D.Versao':'ALL.D.Versao':'Versoes Dinamicas','EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Capital Mínimo Total']=>  
+['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Folga/Insuficiência de Capital'],
+  ['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'% Folga/Insuficiência de Capital'];
+
+
+### FEEDER PR Total Disponível
+['ALL.D.Versao':'ALL.D.Versao':'Versoes Dinamicas','EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'PR TOTAL (Nível I + Nível II)']=>    
+['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'PR Total Disponível'];
+
+['ALL.D.Versao':'ALL.D.Versao':'Versoes Dinamicas','EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'RWA TOTAL']=> ['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Estresse'];
+
+  ### FEEDER Meta Interna Banco
+['ALL.D.Versao':'ALL.D.Versao':'Versoes Dinamicas','EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'RWA TOTAL']=>
+  ['EDC.100.Estudo_Capital':'EDC.100.Estudo_Capital':'Meta Interna do Banco'];  

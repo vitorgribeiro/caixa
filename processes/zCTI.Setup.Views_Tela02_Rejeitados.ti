@@ -1,0 +1,15 @@
+#region Prolog
+sCube='SYS.160.Rejeitados_Cargas';
+sProc='}Processes'; sCli='}Clients'; sLin='SYS.D.Linha'; sMea='SYS.M.160.Rejeitados_Cargas';
+v='Tela_02_Rejeitados_View_01_Pivot_Rejeitados';
+ViewCreate(sCube,v);
+ViewSubsetAssign(sCube,v,sProc,'zSYS160_Proc');
+ViewSubsetAssign(sCube,v,sCli,'zSYS160_Cli');
+ViewSubsetAssign(sCube,v,sLin,'zSYS160_Linha');
+ViewSubsetAssign(sCube,v,sMea,'zSYS160_Med');
+ViewRowDimensionSet(sCube,v,sProc,1);
+ViewRowDimensionSet(sCube,v,sCli,2);
+ViewRowDimensionSet(sCube,v,sLin,3);
+ViewColumnDimensionSet(sCube,v,sMea,1);
+ViewExtractSkipZeroesSet(sCube,v,1);
+#endregion

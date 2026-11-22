@@ -1,0 +1,176 @@
+#region Prolog
+sCal='ALL.D.Calendario'; sSaf='ALL.D.Safra'; sVer='ALL.D.Versao';
+sPro='ALL.D.Produto'; sCan='ALL.D.Canal'; sPrz='ALL.D.Prazo';
+sTip='ALL.D.Tipo_Pessoa'; sMob='CRT.D.MOB';
+c20='COM.020.Producao'; m20='COM.M.020.Producao';
+c10='CRT.010.Premissas_Calendario'; m10='CRT.M.010.Premissas_Calendario';
+c15='CRT.015.Premissas_Safra'; m15='CRT.M.015.Premissas_Safra';
+c40='CRT.040.Carteira_Novos'; m40='CRT.M.040.Carteira_Novos';
+
+#=== V01 COM.020 Premissas Producao por Produto
+v='Tela_04_Novos_View_01_Pivot_Premissas_Producao_por_Produto';
+ViewCreate(c20,v);
+ViewSubsetAssign(c20,v,sCal,'zCal_2607');
+ViewSubsetAssign(c20,v,sVer,'zTela03_VerT1');
+ViewSubsetAssign(c20,v,sPro,'zProd_Itens');
+ViewSubsetAssign(c20,v,sCan,'zTela03_CanalTot');
+ViewSubsetAssign(c20,v,sPrz,'zTela03_PrazoTot');
+ViewSubsetAssign(c20,v,sTip,'zTela03_TipoTot');
+ViewSubsetAssign(c20,v,m20,'zM_COM020_Prem');
+ViewColumnDimensionSet(c20,v,sPro,1);
+ViewRowDimensionSet(c20,v,m20,1);
+ViewTitleDimensionSet(c20,v,sCal);
+ViewTitleDimensionSet(c20,v,sVer);
+ViewTitleDimensionSet(c20,v,sCan);
+ViewTitleDimensionSet(c20,v,sPrz);
+ViewTitleDimensionSet(c20,v,sTip);
+ViewExtractSkipZeroesSet(c20,v,1);
+
+#=== V02 CRT.010 Premissas Taxa por Produto
+v='Tela_04_Novos_View_02_Pivot_Premissas_Taxa_por_Produto';
+ViewCreate(c10,v);
+ViewSubsetAssign(c10,v,sCal,'zCal_2607');
+ViewSubsetAssign(c10,v,sVer,'zTela03_VerT1');
+ViewSubsetAssign(c10,v,sPro,'zProd_Itens');
+ViewSubsetAssign(c10,v,m10,'zM_CRT010');
+ViewColumnDimensionSet(c10,v,sPro,1);
+ViewRowDimensionSet(c10,v,m10,1);
+ViewTitleDimensionSet(c10,v,sCal);
+ViewTitleDimensionSet(c10,v,sVer);
+ViewExtractSkipZeroesSet(c10,v,1);
+
+#=== V03 CRT.015 Premissas Curvas por MOB
+v='Tela_04_Novos_View_03_Pivot_Premissas_Curvas_por_MOB';
+ViewCreate(c15,v);
+ViewSubsetAssign(c15,v,sSaf,'zTela03_SafraTot');
+ViewSubsetAssign(c15,v,sVer,'zTela03_VerT1');
+ViewSubsetAssign(c15,v,sPro,'zProd_Veic');
+ViewSubsetAssign(c15,v,sPrz,'zPrazo_24');
+ViewSubsetAssign(c15,v,sMob,'zMOB_Leaf');
+ViewSubsetAssign(c15,v,m15,'zM_CRT015');
+ViewRowDimensionSet(c15,v,sMob,1);
+ViewColumnDimensionSet(c15,v,m15,1);
+ViewTitleDimensionSet(c15,v,sSaf);
+ViewTitleDimensionSet(c15,v,sVer);
+ViewTitleDimensionSet(c15,v,sPro);
+ViewTitleDimensionSet(c15,v,sPrz);
+ViewExtractSkipZeroesSet(c15,v,1);
+
+#=== V04 COM.020 Volume por Produto e Canal
+v='Tela_04_Novos_View_04_Pivot_Volume_por_Produto_e_Canal';
+ViewCreate(c20,v);
+ViewSubsetAssign(c20,v,sCal,'zCal_2607');
+ViewSubsetAssign(c20,v,sVer,'zTela03_VerT1');
+ViewSubsetAssign(c20,v,sPro,'zProd_Itens');
+ViewSubsetAssign(c20,v,sCan,'zCanal_Itens');
+ViewSubsetAssign(c20,v,sPrz,'zTela03_PrazoTot');
+ViewSubsetAssign(c20,v,sTip,'zTela03_TipoTot');
+ViewSubsetAssign(c20,v,m20,'zM_COM020_Qtd');
+ViewRowDimensionSet(c20,v,sCan,1);
+ViewColumnDimensionSet(c20,v,sPro,1);
+ViewTitleDimensionSet(c20,v,sCal);
+ViewTitleDimensionSet(c20,v,sVer);
+ViewTitleDimensionSet(c20,v,sPrz);
+ViewTitleDimensionSet(c20,v,sTip);
+ViewTitleDimensionSet(c20,v,m20);
+ViewExtractSkipZeroesSet(c20,v,1);
+
+#=== V05 CRT.040 Projecao Mensal
+v='Tela_04_Novos_View_05_Pivot_Projecao_Mensal';
+ViewCreate(c40,v);
+ViewSubsetAssign(c40,v,sCal,'zTela03_CalProj');
+ViewSubsetAssign(c40,v,sSaf,'zTela03_SafraTot');
+ViewSubsetAssign(c40,v,sVer,'zTela03_VerT1');
+ViewSubsetAssign(c40,v,sPro,'zTela03_ProdTot');
+ViewSubsetAssign(c40,v,sCan,'zTela03_CanalTot');
+ViewSubsetAssign(c40,v,sPrz,'zTela03_PrazoTot');
+ViewSubsetAssign(c40,v,sTip,'zTela03_TipoTot');
+ViewSubsetAssign(c40,v,m40,'zM_CRT040_Motor');
+ViewColumnDimensionSet(c40,v,sCal,1);
+ViewRowDimensionSet(c40,v,m40,1);
+ViewTitleDimensionSet(c40,v,sSaf);
+ViewTitleDimensionSet(c40,v,sVer);
+ViewTitleDimensionSet(c40,v,sPro);
+ViewTitleDimensionSet(c40,v,sCan);
+ViewTitleDimensionSet(c40,v,sPrz);
+ViewTitleDimensionSet(c40,v,sTip);
+ViewExtractSkipZeroesSet(c40,v,1);
+
+#=== V06 CRT.040 Juros por Produto e Ano
+v='Tela_04_Novos_View_06_Pivot_Juros_por_Produto_e_Ano';
+ViewCreate(c40,v);
+ViewSubsetAssign(c40,v,sCal,'zTela03_CalAnos');
+ViewSubsetAssign(c40,v,sSaf,'zTela03_SafraTot');
+ViewSubsetAssign(c40,v,sVer,'zTela03_VerT1');
+ViewSubsetAssign(c40,v,sPro,'zProd_Itens');
+ViewSubsetAssign(c40,v,sCan,'zTela03_CanalTot');
+ViewSubsetAssign(c40,v,sPrz,'zTela03_PrazoTot');
+ViewSubsetAssign(c40,v,sTip,'zTela03_TipoTot');
+ViewSubsetAssign(c40,v,m40,'zM_CRT040_Juros');
+ViewRowDimensionSet(c40,v,sPro,1);
+ViewColumnDimensionSet(c40,v,sCal,1);
+ViewTitleDimensionSet(c40,v,sSaf);
+ViewTitleDimensionSet(c40,v,sVer);
+ViewTitleDimensionSet(c40,v,sCan);
+ViewTitleDimensionSet(c40,v,sPrz);
+ViewTitleDimensionSet(c40,v,sTip);
+ViewTitleDimensionSet(c40,v,m40);
+ViewExtractSkipZeroesSet(c40,v,1);
+
+#=== V07 COM.020 Grafico Barra Empilhada Mix Canal
+v='Tela_04_Novos_View_07_Grafico_Barra_Empilhada_Mix_Canal';
+ViewCreate(c20,v);
+ViewSubsetAssign(c20,v,sCal,'zTela03_CalProj');
+ViewSubsetAssign(c20,v,sVer,'zTela03_VerT1');
+ViewSubsetAssign(c20,v,sPro,'zTela03_ProdTot');
+ViewSubsetAssign(c20,v,sCan,'zCanal_Itens');
+ViewSubsetAssign(c20,v,sPrz,'zTela03_PrazoTot');
+ViewSubsetAssign(c20,v,sTip,'zTela03_TipoTot');
+ViewSubsetAssign(c20,v,m20,'zM_COM020_Qtd');
+ViewColumnDimensionSet(c20,v,sCal,1);
+ViewRowDimensionSet(c20,v,sCan,1);
+ViewTitleDimensionSet(c20,v,sVer);
+ViewTitleDimensionSet(c20,v,sPro);
+ViewTitleDimensionSet(c20,v,sPrz);
+ViewTitleDimensionSet(c20,v,sTip);
+ViewTitleDimensionSet(c20,v,m20);
+ViewExtractSkipZeroesSet(c20,v,1);
+
+#=== V08 COM.020 Grafico Coluna Volume por Produto
+v='Tela_04_Novos_View_08_Grafico_Coluna_Volume_por_Produto';
+ViewCreate(c20,v);
+ViewSubsetAssign(c20,v,sCal,'zCal_2607');
+ViewSubsetAssign(c20,v,sVer,'zTela03_VerT1');
+ViewSubsetAssign(c20,v,sPro,'zProd_Itens');
+ViewSubsetAssign(c20,v,sCan,'zTela03_CanalTot');
+ViewSubsetAssign(c20,v,sPrz,'zTela03_PrazoTot');
+ViewSubsetAssign(c20,v,sTip,'zTela03_TipoTot');
+ViewSubsetAssign(c20,v,m20,'zM_COM020_Qtd');
+ViewRowDimensionSet(c20,v,sPro,1);
+ViewColumnDimensionSet(c20,v,m20,1);
+ViewTitleDimensionSet(c20,v,sCal);
+ViewTitleDimensionSet(c20,v,sVer);
+ViewTitleDimensionSet(c20,v,sCan);
+ViewTitleDimensionSet(c20,v,sPrz);
+ViewTitleDimensionSet(c20,v,sTip);
+ViewExtractSkipZeroesSet(c20,v,1);
+
+#=== V09 COM.020 Grafico Coluna ValorFinanciado por Produto
+v='Tela_04_Novos_View_09_Grafico_Coluna_ValorFinanciado_por_Produto';
+ViewCreate(c20,v);
+ViewSubsetAssign(c20,v,sCal,'zCal_2607');
+ViewSubsetAssign(c20,v,sVer,'zTela03_VerT1');
+ViewSubsetAssign(c20,v,sPro,'zProd_Itens');
+ViewSubsetAssign(c20,v,sCan,'zTela03_CanalTot');
+ViewSubsetAssign(c20,v,sPrz,'zTela03_PrazoTot');
+ViewSubsetAssign(c20,v,sTip,'zTela03_TipoTot');
+ViewSubsetAssign(c20,v,m20,'zM_COM020_ValFin');
+ViewRowDimensionSet(c20,v,sPro,1);
+ViewColumnDimensionSet(c20,v,m20,1);
+ViewTitleDimensionSet(c20,v,sCal);
+ViewTitleDimensionSet(c20,v,sVer);
+ViewTitleDimensionSet(c20,v,sCan);
+ViewTitleDimensionSet(c20,v,sPrz);
+ViewTitleDimensionSet(c20,v,sTip);
+ViewExtractSkipZeroesSet(c20,v,1);
+#endregion

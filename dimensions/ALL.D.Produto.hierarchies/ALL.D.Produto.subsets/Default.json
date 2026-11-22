@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"Alias":"MEMBER_NAME",
+	"Expression":"{DRILLDOWNMEMBER({[ALL.D.Produto].[ALL.D.Produto].[Total Produto]} , {[ALL.D.Produto].[ALL.D.Produto].[Total Produto]} , RECURSIVE)}"
+}

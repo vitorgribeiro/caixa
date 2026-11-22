@@ -1,0 +1,12 @@
+{
+	"@type":"Process",
+	"Name":"zCTI.Setup.Views_Tela02_Rejeitados",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"zCTI.Setup.Views_Tela02_Rejeitados.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}

@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"zM_COM020_ValFin",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('COM.M.020.Producao')/Hierarchies('COM.M.020.Producao')/Elements('Valor Financiado Total')"
+		}
+	]
+}

@@ -1,0 +1,66 @@
+#region Prolog
+#--- Gerador de premissas sinteticas da demo (deterministico) para T1 e T2 --------------------
+# Curvas estendidas ate safra 2025/12 (novos originam ate 2025/01).
+
+vV = 1;
+WHILE( vV <= 2 );
+  sVer = IF( vV = 1, 'T1', 'T2' );
+
+  vAno = 2024;
+  WHILE( vAno <= 2030 );
+    vMes = 1;
+    WHILE( vMes <= 12 );
+      sMes = IF( vMes < 10, '0' | TRIM( STR( vMes, 1, 0 ) ), TRIM( STR( vMes, 2, 0 ) ) );
+      sCal = TRIM( STR( vAno, 4, 0 ) ) | '/' | sMes;
+      vIdx = ( vAno - 2024 ) * 12 + vMes;
+      sFlag = IF( vIdx <= 7, 'Real', 'Orcado' );
+      CellPutS( sFlag, 'PRE.001.Premissas_Gerais', sCal, sVer, 'Real x Orcado' );
+      CellPutN( 30, 'PRE.001.Premissas_Gerais', sCal, sVer, 'Dias Corridos' );
+      IF( vIdx >= 7 );
+        CellPutN( 0.0364, 'CRT.010.Premissas_Calendario', sCal, sVer, 'Veiculos', '% Taxa Cliente' );
+        CellPutN( 0.055, 'CRT.010.Premissas_Calendario', sCal, sVer, 'Emprestimo Pessoal', '% Taxa Cliente' );
+        CellPutN( 0.009, 'CRT.010.Premissas_Calendario', sCal, sVer, 'Veiculos', '% Custo Funding' );
+        CellPutN( 0.009, 'CRT.010.Premissas_Calendario', sCal, sVer, 'Emprestimo Pessoal', '% Custo Funding' );
+      ENDIF;
+      vMes = vMes + 1;
+    END;
+    vAno = vAno + 1;
+  END;
+
+  vAnoS = 2023;
+  WHILE( vAnoS <= 2025 );
+    vMesS = 1;
+    WHILE( vMesS <= 12 );
+      IF( vAnoS = 2023 & vMesS < 3 );
+        # pula 2023/01-02
+      ELSE;
+        sMesS = IF( vMesS < 10, '0' | TRIM( STR( vMesS, 1, 0 ) ), TRIM( STR( vMesS, 2, 0 ) ) );
+        sSaf = TRIM( STR( vAnoS, 4, 0 ) ) | '/' | sMesS;
+        vP = 1;
+        WHILE( vP <= 2 );
+          sProd = IF( vP = 1, 'Veiculos', 'Emprestimo Pessoal' );
+          vPz = 12;
+          WHILE( vPz <= 36 );
+            sPz = TRIM( STR( vPz, 2, 0 ) );
+            vM = 1;
+            WHILE( vM <= vPz );
+              sM = TRIM( STR( vM, 3, 0 ) );
+              CellPutN( 1 / ( vPz - vM + 1 ), 'CRT.015.Premissas_Safra', sSaf, sVer, sProd, sPz, sM, '% Runoff' );
+              CellPutN( 0.003, 'CRT.015.Premissas_Safra', sSaf, sVer, sProd, sPz, sM, '% LA Full' );
+              CellPutN( 0.002, 'CRT.015.Premissas_Safra', sSaf, sVer, sProd, sPz, sM, '% LA Parcial' );
+              CellPutN( 0.0015, 'CRT.015.Premissas_Safra', sSaf, sVer, sProd, sPz, sM, '% WO' );
+              vM = vM + 1;
+            END;
+            vPz = vPz + 12;
+          END;
+          vP = vP + 1;
+        END;
+      ENDIF;
+      vMesS = vMesS + 1;
+    END;
+    vAnoS = vAnoS + 1;
+  END;
+
+  vV = vV + 1;
+END;
+#endregion

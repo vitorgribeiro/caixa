@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"PRE.M.001.Premissas_Gerais",
+	"Elements":
+	[
+		{
+			"Name":"Real x Orcado",
+			"Type":"String"
+		},
+		{
+			"Name":"Dias Corridos",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

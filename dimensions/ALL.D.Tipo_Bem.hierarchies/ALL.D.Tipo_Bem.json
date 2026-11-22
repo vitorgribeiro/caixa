@@ -1,0 +1,33 @@
+{
+	"@type":"Hierarchy",
+	"Name":"ALL.D.Tipo_Bem",
+	"Elements":
+	[
+		{
+			"Name":"Total Tipo Bem",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Novo",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Usado",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total Tipo Bem",
+			"ComponentName":"Novo",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Tipo Bem",
+			"ComponentName":"Usado",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

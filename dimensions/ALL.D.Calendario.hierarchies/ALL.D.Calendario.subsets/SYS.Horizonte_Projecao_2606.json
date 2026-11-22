@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"SYS.Horizonte_Projecao_2606",
+	"Expression":"{ [ALL.D.Calendario].[2026/06] : [ALL.D.Calendario].[2027/11] }"
+}

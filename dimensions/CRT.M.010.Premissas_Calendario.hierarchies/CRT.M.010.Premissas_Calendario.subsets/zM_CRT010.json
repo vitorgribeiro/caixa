@@ -1,0 +1,13 @@
+{
+	"@type":"Subset",
+	"Name":"zM_CRT010",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('CRT.M.010.Premissas_Calendario')/Hierarchies('CRT.M.010.Premissas_Calendario')/Elements('% Taxa Cliente')"
+		},
+		{
+			"@id":"Dimensions('CRT.M.010.Premissas_Calendario')/Hierarchies('CRT.M.010.Premissas_Calendario')/Elements('% Custo Funding')"
+		}
+	]
+}

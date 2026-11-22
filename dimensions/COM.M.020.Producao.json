@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"COM.M.020.Producao",
+	"Hierarchies@Code.links":
+	[
+		"COM.M.020.Producao.hierarchies/COM.M.020.Producao.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('COM.M.020.Producao')/Hierarchies('COM.M.020.Producao')"
+	}
+}

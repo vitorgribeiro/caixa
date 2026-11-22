@@ -1,0 +1,12 @@
+{
+	"@type":"Process",
+	"Name":"zCTI.Setup.Views_Tela01_Carga",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"zCTI.Setup.Views_Tela01_Carga.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}

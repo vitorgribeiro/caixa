@@ -1,0 +1,48 @@
+SKIPCHECK;
+
+[] = N:
+  IF( ELISANC( 'ALL.D.Versao', 'Versoes Dinamicas', !ALL.D.Versao ) <> 0
+    , CONTINUE
+    , STET
+    );
+
+['COM.M.020.Producao':'Qtd Contratos'] = N:
+  DB( 'COM.010.Mercado', !ALL.D.Calendario, !ALL.D.Versao, !ALL.D.Produto, !ALL.D.Canal, 'Qtd Contratos' )
+  * ['COM.M.020.Producao':'% Mix Prazo'];
+
+['COM.M.020.Producao':'Valor do Bem Total'] = N:
+    ['COM.M.020.Producao':'Qtd Contratos']
+  * ['COM.M.020.Producao':'Ticket Medio'];
+
+['COM.M.020.Producao':'Valor Entrada'] = N:
+  IF( ATTRN( 'ALL.D.Produto', !ALL.D.Produto, 'Tem Entrada' ) = 0
+    , 0
+    , ['COM.M.020.Producao':'Valor do Bem Total'] * ['COM.M.020.Producao':'% Entrada']
+    );
+
+['COM.M.020.Producao':'Valor Financiado Total'] = N:
+    ['COM.M.020.Producao':'Valor do Bem Total']
+  - ['COM.M.020.Producao':'Valor Entrada'];
+
+# --- Consolidacao correta de medidas de taxa/media (nao somar no tempo/produto/canal) ---
+['COM.M.020.Producao':'Ticket Medio'] = C:
+  ['COM.M.020.Producao':'Valor do Bem Total'] \ ['COM.M.020.Producao':'Qtd Contratos'];
+
+['COM.M.020.Producao':'% Entrada'] = C:
+  ['COM.M.020.Producao':'Valor Entrada'] \ ['COM.M.020.Producao':'Valor do Bem Total'];
+
+['COM.M.020.Producao':'% Mix Prazo'] = C:
+  ['COM.M.020.Producao':'Qtd Contratos']
+  \ DB( 'COM.020.Producao', !ALL.D.Calendario, !ALL.D.Versao, !ALL.D.Produto, !ALL.D.Canal, 'Total Prazo', !ALL.D.Tipo_Pessoa, 'Qtd Contratos' );
+
+
+FEEDERS;
+
+['ALL.D.Versao':'Versoes Dinamicas','COM.M.020.Producao':'% Mix Prazo'] =>
+    ['COM.M.020.Producao':'Qtd Contratos']
+  , ['COM.M.020.Producao':'Valor do Bem Total']
+  , ['COM.M.020.Producao':'Valor Entrada']
+  , ['COM.M.020.Producao':'Valor Financiado Total'];
+
+['ALL.D.Versao':'Versoes Dinamicas','COM.M.020.Producao':'Valor Financiado Total'] =>
+    DB( 'CRT.040.Carteira_Novos', !ALL.D.Calendario, !ALL.D.Calendario, !ALL.D.Versao, !ALL.D.Produto, !ALL.D.Canal, !ALL.D.Prazo, !ALL.D.Tipo_Pessoa, 'Valor Financiado' );

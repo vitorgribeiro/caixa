@@ -1,0 +1,60 @@
+{
+	"@type":"Hierarchy",
+	"Name":"zzzzz",
+	"Elements":
+	[
+		{
+			"Name":"Todos os Departamentos",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Corporativo",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Varejo",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Atacado",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Laboretório",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Estúdio",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Todos os Departamentos",
+			"ComponentName":"Corporativo",
+			"Weight":1
+		},
+		{
+			"ParentName":"Todos os Departamentos",
+			"ComponentName":"Varejo",
+			"Weight":1
+		},
+		{
+			"ParentName":"Todos os Departamentos",
+			"ComponentName":"Atacado",
+			"Weight":1
+		},
+		{
+			"ParentName":"Todos os Departamentos",
+			"ComponentName":"Laboretório",
+			"Weight":1
+		},
+		{
+			"ParentName":"Todos os Departamentos",
+			"ComponentName":"Estúdio",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

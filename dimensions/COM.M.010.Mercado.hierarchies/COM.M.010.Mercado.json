@@ -1,0 +1,24 @@
+{
+	"@type":"Hierarchy",
+	"Name":"COM.M.010.Mercado",
+	"Elements":
+	[
+		{
+			"Name":"Mercado Ano Anterior",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"% Crescimento Mercado",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"% Penetracao",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Qtd Contratos",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

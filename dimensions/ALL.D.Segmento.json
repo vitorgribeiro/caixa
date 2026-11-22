@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"ALL.D.Segmento",
+	"Hierarchies@Code.links":
+	[
+		"ALL.D.Segmento.hierarchies/ALL.D.Segmento.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('ALL.D.Segmento')/Hierarchies('ALL.D.Segmento')"
+	}
+}

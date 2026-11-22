@@ -1,0 +1,99 @@
+#region Prolog
+#--- Dimensoes de metricas (uma por cubo) — idempotente ---------------------------------------
+
+#--- PRE.M.001.Premissas_Gerais ---------------------------------------------------------------
+sDim = 'PRE.M.001.Premissas_Gerais';
+IF( DimensionExists( sDim ) = 0 ); DimensionCreate( sDim ); ENDIF;
+DimensionElementInsertDirect( sDim, '', 'Real x Orcado', 'S' );
+DimensionElementInsertDirect( sDim, '', 'Dias Corridos', 'N' );
+
+#--- COM.M.010.Mercado ------------------------------------------------------------------------
+sDim = 'COM.M.010.Mercado';
+IF( DimensionExists( sDim ) = 0 ); DimensionCreate( sDim ); ENDIF;
+DimensionElementInsertDirect( sDim, '', 'Mercado Ano Anterior', 'N' );
+DimensionElementInsertDirect( sDim, '', '% Crescimento Mercado', 'N' );
+DimensionElementInsertDirect( sDim, '', '% Penetracao', 'N' );
+DimensionElementInsertDirect( sDim, '', 'Qtd Contratos', 'N' );
+
+#--- COM.M.020.Producao -----------------------------------------------------------------------
+sDim = 'COM.M.020.Producao';
+IF( DimensionExists( sDim ) = 0 ); DimensionCreate( sDim ); ENDIF;
+DimensionElementInsertDirect( sDim, '', 'Qtd Contratos', 'N' );
+DimensionElementInsertDirect( sDim, '', 'Ticket Medio', 'N' );
+DimensionElementInsertDirect( sDim, '', '% Entrada', 'N' );
+DimensionElementInsertDirect( sDim, '', '% Mix Prazo', 'N' );
+DimensionElementInsertDirect( sDim, '', 'Valor do Bem Total', 'N' );
+DimensionElementInsertDirect( sDim, '', 'Valor Entrada', 'N' );
+DimensionElementInsertDirect( sDim, '', 'Valor Financiado Total', 'N' );
+
+#--- CRT.M.010.Premissas_Calendario -----------------------------------------------------------
+sDim = 'CRT.M.010.Premissas_Calendario';
+IF( DimensionExists( sDim ) = 0 ); DimensionCreate( sDim ); ENDIF;
+DimensionElementInsertDirect( sDim, '', '% Taxa Cliente', 'N' );
+DimensionElementInsertDirect( sDim, '', '% Custo Funding', 'N' );
+
+#--- CRT.M.015.Premissas_Safra ----------------------------------------------------------------
+sDim = 'CRT.M.015.Premissas_Safra';
+IF( DimensionExists( sDim ) = 0 ); DimensionCreate( sDim ); ENDIF;
+DimensionElementInsertDirect( sDim, '', '% Runoff', 'N' );
+DimensionElementInsertDirect( sDim, '', '% LA Full', 'N' );
+DimensionElementInsertDirect( sDim, '', '% LA Parcial', 'N' );
+DimensionElementInsertDirect( sDim, '', '% WO', 'N' );
+
+#--- CRT.M.040.Carteira_Novos (com consolidacao (-) LA Total) ---------------------------------
+sDim = 'CRT.M.040.Carteira_Novos';
+IF( DimensionExists( sDim ) = 0 ); DimensionCreate( sDim ); ENDIF;
+DimensionElementInsertDirect( sDim, '', 'Volume', 'N' );
+DimensionElementInsertDirect( sDim, '', 'Valor Financiado', 'N' );
+DimensionElementInsertDirect( sDim, '', 'Saldo Inicial', 'N' );
+DimensionElementInsertDirect( sDim, '', '(+) Juros', 'N' );
+DimensionElementInsertDirect( sDim, '', '(-) Amortizacao', 'N' );
+DimensionElementInsertDirect( sDim, '', '(-) LA Full', 'N' );
+DimensionElementInsertDirect( sDim, '', '(-) LA Parcial', 'N' );
+DimensionElementInsertDirect( sDim, '', '(-) WO', 'N' );
+DimensionElementInsertDirect( sDim, '', 'Saldo Final', 'N' );
+DimensionElementInsertDirect( sDim, '', 'SYS.MOB', 'N' );
+DimensionElementInsertDirect( sDim, '', '(-) LA Total', 'C' );
+DimensionElementComponentAddDirect( sDim, '(-) LA Total', '(-) LA Full', 1 );
+DimensionElementComponentAddDirect( sDim, '(-) LA Total', '(-) LA Parcial', 1 );
+
+#--- CRT.M.030.Carteira_Existentes (040 + Saldo Carga / % Taxa Media Carga / Parcelas Rem.) ---
+sDim = 'CRT.M.030.Carteira_Existentes';
+IF( DimensionExists( sDim ) = 0 ); DimensionCreate( sDim ); ENDIF;
+DimensionElementInsertDirect( sDim, '', 'Volume', 'N' );
+DimensionElementInsertDirect( sDim, '', 'Valor Financiado', 'N' );
+DimensionElementInsertDirect( sDim, '', 'Saldo Inicial', 'N' );
+DimensionElementInsertDirect( sDim, '', '(+) Juros', 'N' );
+DimensionElementInsertDirect( sDim, '', '(-) Amortizacao', 'N' );
+DimensionElementInsertDirect( sDim, '', '(-) LA Full', 'N' );
+DimensionElementInsertDirect( sDim, '', '(-) LA Parcial', 'N' );
+DimensionElementInsertDirect( sDim, '', '(-) WO', 'N' );
+DimensionElementInsertDirect( sDim, '', 'Saldo Final', 'N' );
+DimensionElementInsertDirect( sDim, '', 'SYS.MOB', 'N' );
+DimensionElementInsertDirect( sDim, '', 'Saldo Carga', 'N' );
+DimensionElementInsertDirect( sDim, '', '% Taxa Media Carga', 'N' );
+DimensionElementInsertDirect( sDim, '', 'Parcelas Remanescentes', 'N' );
+DimensionElementInsertDirect( sDim, '', '(-) LA Total', 'C' );
+DimensionElementComponentAddDirect( sDim, '(-) LA Total', '(-) LA Full', 1 );
+DimensionElementComponentAddDirect( sDim, '(-) LA Total', '(-) LA Parcial', 1 );
+
+#--- CRT.M.050.Carteira_Consolidada -----------------------------------------------------------
+sDim = 'CRT.M.050.Carteira_Consolidada';
+IF( DimensionExists( sDim ) = 0 ); DimensionCreate( sDim ); ENDIF;
+DimensionElementInsertDirect( sDim, '', 'Saldo Inicial', 'N' );
+DimensionElementInsertDirect( sDim, '', '(+) Juros', 'N' );
+DimensionElementInsertDirect( sDim, '', '(-) Amortizacao', 'N' );
+DimensionElementInsertDirect( sDim, '', '(-) LA Total', 'N' );
+DimensionElementInsertDirect( sDim, '', '(-) WO', 'N' );
+DimensionElementInsertDirect( sDim, '', 'Saldo Final', 'N' );
+
+#--- REC.M.100.Receita_Financeira (com consolidacao (=) Margem Financeira) ---------------------
+sDim = 'REC.M.100.Receita_Financeira';
+IF( DimensionExists( sDim ) = 0 ); DimensionCreate( sDim ); ENDIF;
+DimensionElementInsertDirect( sDim, '', 'Saldo Medio', 'N' );
+DimensionElementInsertDirect( sDim, '', '(+) Juros Carteira', 'N' );
+DimensionElementInsertDirect( sDim, '', '(-) Custo Funding', 'N' );
+DimensionElementInsertDirect( sDim, '', '(=) Margem Financeira', 'C' );
+DimensionElementComponentAddDirect( sDim, '(=) Margem Financeira', '(+) Juros Carteira', 1 );
+DimensionElementComponentAddDirect( sDim, '(=) Margem Financeira', '(-) Custo Funding', 1 );
+#endregion

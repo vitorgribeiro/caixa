@@ -1,0 +1,22 @@
+{
+	"@type":"Cube",
+	"Name":"EDC.100.Estudo_Capital",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('ALL.D.Calendario')"
+		},
+		{
+			"@id":"Dimensions('ALL.D.Versao')"
+		},
+		{
+			"@id":"Dimensions('EDC.100.Estudo_Capital')"
+		}
+	],
+	"Rules@Code.link":"EDC.100.Estudo_Capital.rules",
+	"Views@Code.links":
+	[
+		"EDC.100.Estudo_Capital.views/Default.json",
+		"EDC.100.Estudo_Capital.views/Indicadores de Capital.json"
+	]
+}

@@ -1,0 +1,14 @@
+{
+	"@type":"Subset",
+	"Name":"Saldos",
+	"Alias":"MEMBER_NAME",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('CRT.M.040.Carteira_Novos')/Hierarchies('CRT.M.040.Carteira_Novos')/Elements('Saldo Inicial')"
+		},
+		{
+			"@id":"Dimensions('CRT.M.040.Carteira_Novos')/Hierarchies('CRT.M.040.Carteira_Novos')/Elements('Saldo Final')"
+		}
+	]
+}

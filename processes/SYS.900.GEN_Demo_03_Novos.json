@@ -1,0 +1,12 @@
+{
+	"@type":"Process",
+	"Name":"SYS.900.GEN_Demo_03_Novos",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"SYS.900.GEN_Demo_03_Novos.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}

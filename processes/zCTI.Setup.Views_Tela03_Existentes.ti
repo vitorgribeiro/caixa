@@ -1,0 +1,97 @@
+#region Prolog
+sCube='CRT.030.Carteira_Existentes';
+sCal='ALL.D.Calendario'; sSaf='ALL.D.Safra'; sVer='ALL.D.Versao';
+sPro='ALL.D.Produto'; sCan='ALL.D.Canal'; sPrz='ALL.D.Prazo';
+sTip='ALL.D.Tipo_Pessoa'; sMea='CRT.M.030.Carteira_Existentes';
+
+#=== limpeza (views ja existem; torna o processo re-executavel)
+ViewDestroy(sCube,'Tela_03_Existentes_View_01_Pivot_Carteira_Mensal');
+ViewDestroy(sCube,'Tela_03_Existentes_View_02_Grafico_Coluna_Juros_por_Ano');
+ViewDestroy(sCube,'Tela_03_Existentes_View_03_Grafico_Coluna_Saldo_no_Tempo');
+ViewDestroy(sCube,'Tela_03_Existentes_View_04_Pivot_Saldo_por_Safra');
+ViewDestroy(sCube,'zDiag_Title');
+
+#=== VIEW 01
+v='Tela_03_Existentes_View_01_Pivot_Carteira_Mensal';
+ViewCreate(sCube,v);
+ViewSubsetAssign(sCube,v,sCal,'zTela03_CalProj');
+ViewSubsetAssign(sCube,v,sMea,'zTela03_MedidasPivot');
+ViewSubsetAssign(sCube,v,sSaf,'zTela03_SafraTot');
+ViewSubsetAssign(sCube,v,sVer,'zTela03_VerT1');
+ViewSubsetAssign(sCube,v,sPro,'zTela03_ProdTot');
+ViewSubsetAssign(sCube,v,sCan,'zTela03_CanalTot');
+ViewSubsetAssign(sCube,v,sPrz,'zTela03_PrazoTot');
+ViewSubsetAssign(sCube,v,sTip,'zTela03_TipoTot');
+ViewColumnDimensionSet(sCube,v,sCal,1);
+ViewRowDimensionSet(sCube,v,sMea,1);
+ViewTitleDimensionSet(sCube,v,sSaf);
+ViewTitleDimensionSet(sCube,v,sVer);
+ViewTitleDimensionSet(sCube,v,sPro);
+ViewTitleDimensionSet(sCube,v,sCan);
+ViewTitleDimensionSet(sCube,v,sPrz);
+ViewTitleDimensionSet(sCube,v,sTip);
+ViewExtractSkipZeroesSet(sCube,v,1);
+
+#=== VIEW 02
+v='Tela_03_Existentes_View_02_Grafico_Coluna_Juros_por_Ano';
+ViewCreate(sCube,v);
+ViewSubsetAssign(sCube,v,sCal,'zTela03_CalAnos');
+ViewSubsetAssign(sCube,v,sMea,'zTela03_Juros');
+ViewSubsetAssign(sCube,v,sSaf,'zTela03_SafraTot');
+ViewSubsetAssign(sCube,v,sVer,'zTela03_VerT1');
+ViewSubsetAssign(sCube,v,sPro,'zTela03_ProdTot');
+ViewSubsetAssign(sCube,v,sCan,'zTela03_CanalTot');
+ViewSubsetAssign(sCube,v,sPrz,'zTela03_PrazoTot');
+ViewSubsetAssign(sCube,v,sTip,'zTela03_TipoTot');
+ViewRowDimensionSet(sCube,v,sCal,1);
+ViewColumnDimensionSet(sCube,v,sMea,1);
+ViewTitleDimensionSet(sCube,v,sSaf);
+ViewTitleDimensionSet(sCube,v,sVer);
+ViewTitleDimensionSet(sCube,v,sPro);
+ViewTitleDimensionSet(sCube,v,sCan);
+ViewTitleDimensionSet(sCube,v,sPrz);
+ViewTitleDimensionSet(sCube,v,sTip);
+ViewExtractSkipZeroesSet(sCube,v,1);
+
+#=== VIEW 03
+v='Tela_03_Existentes_View_03_Grafico_Coluna_Saldo_no_Tempo';
+ViewCreate(sCube,v);
+ViewSubsetAssign(sCube,v,sCal,'zTela03_CalProj');
+ViewSubsetAssign(sCube,v,sMea,'zTela03_SaldoFinal');
+ViewSubsetAssign(sCube,v,sSaf,'zTela03_SafraTot');
+ViewSubsetAssign(sCube,v,sVer,'zTela03_VerT1');
+ViewSubsetAssign(sCube,v,sPro,'zTela03_ProdTot');
+ViewSubsetAssign(sCube,v,sCan,'zTela03_CanalTot');
+ViewSubsetAssign(sCube,v,sPrz,'zTela03_PrazoTot');
+ViewSubsetAssign(sCube,v,sTip,'zTela03_TipoTot');
+ViewRowDimensionSet(sCube,v,sCal,1);
+ViewColumnDimensionSet(sCube,v,sMea,1);
+ViewTitleDimensionSet(sCube,v,sSaf);
+ViewTitleDimensionSet(sCube,v,sVer);
+ViewTitleDimensionSet(sCube,v,sPro);
+ViewTitleDimensionSet(sCube,v,sCan);
+ViewTitleDimensionSet(sCube,v,sPrz);
+ViewTitleDimensionSet(sCube,v,sTip);
+ViewExtractSkipZeroesSet(sCube,v,1);
+
+#=== VIEW 04
+v='Tela_03_Existentes_View_04_Pivot_Saldo_por_Safra';
+ViewCreate(sCube,v);
+ViewSubsetAssign(sCube,v,sSaf,'zTela03_SafraLeaf');
+ViewSubsetAssign(sCube,v,sCal,'zTela03_CalProj');
+ViewSubsetAssign(sCube,v,sMea,'zTela03_SaldoFinal');
+ViewSubsetAssign(sCube,v,sVer,'zTela03_VerT1');
+ViewSubsetAssign(sCube,v,sPro,'zTela03_ProdTot');
+ViewSubsetAssign(sCube,v,sCan,'zTela03_CanalTot');
+ViewSubsetAssign(sCube,v,sPrz,'zTela03_PrazoTot');
+ViewSubsetAssign(sCube,v,sTip,'zTela03_TipoTot');
+ViewRowDimensionSet(sCube,v,sSaf,1);
+ViewColumnDimensionSet(sCube,v,sCal,1);
+ViewTitleDimensionSet(sCube,v,sMea);
+ViewTitleDimensionSet(sCube,v,sVer);
+ViewTitleDimensionSet(sCube,v,sPro);
+ViewTitleDimensionSet(sCube,v,sCan);
+ViewTitleDimensionSet(sCube,v,sPrz);
+ViewTitleDimensionSet(sCube,v,sTip);
+ViewExtractSkipZeroesSet(sCube,v,1);
+#endregion

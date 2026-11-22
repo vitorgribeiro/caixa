@@ -1,0 +1,5 @@
+#region Prolog
+# Diagnostico descartavel: injeta 2 contratacoes em 2026/09 T1 Novos (OPER0001/ADM-001) para testar a projecao.
+CellPutN( 2, 'FOL.100.Folha_Pagamento', '2026', '09', 'T1', 'Novos', 'OPER0001', 'ADM-001', 'Contratações (Input)' );
+CubeSaveData( 'FOL.100.Folha_Pagamento' );
+#endregion

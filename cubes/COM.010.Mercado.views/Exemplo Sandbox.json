@@ -1,0 +1,35 @@
+{
+	"@type":"MDXView",
+	"Name":"Exemplo Sandbox",
+	"MDX@Code.link":"Exemplo Sandbox.mdx",
+	"IsAutocalculate" : true,
+	"IsDeferComputeOnLeafDataEntry" : false,
+	"IsSuppressComputeOnOpen" : false,
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[ALL.D.Canal].[ALL.D.Canal]" : "MEMBER_NAME",
+			"[ALL.D.Produto].[ALL.D.Produto]" : "MEMBER_NAME"
+		},
+		"ContextSets" : 
+		{
+			"[ALL.D.Calendario].[ALL.D.Calendario]" : 
+			{
+				"Expression" : "{[ALL.D.Calendario].[ALL.D.Calendario].MEMBERS}"
+			},
+			"[ALL.D.Versao].[ALL.D.Versao]" : 
+			{
+				"Expression" : "{[ALL.D.Versao].[ALL.D.Versao].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[ALL.D.Calendario].[ALL.D.Calendario]" : false,
+			"[ALL.D.Canal].[ALL.D.Canal]" : false,
+			"[ALL.D.Produto].[ALL.D.Produto]" : false,
+			"[ALL.D.Versao].[ALL.D.Versao]" : false,
+			"[COM.M.010.Mercado].[COM.M.010.Mercado]" : false
+		}
+	}
+}

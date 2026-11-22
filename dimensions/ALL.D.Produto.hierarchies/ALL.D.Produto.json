@@ -1,0 +1,43 @@
+{
+	"@type":"Hierarchy",
+	"Name":"ALL.D.Produto",
+	"ElementsSortType":"ByHierarchy",
+	"ComponentsSortType":"ByName",
+	"Elements":
+	[
+		{
+			"Name":"Total Produto",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Emprestimo Pessoal",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Veiculos",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total Produto",
+			"ComponentName":"Emprestimo Pessoal",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Produto",
+			"ComponentName":"Veiculos",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"ALL.D.Produto.subsets/Default.json",
+		"ALL.D.Produto.subsets/SYS.Produtos.json",
+		"ALL.D.Produto.subsets/SYS.Sel_Prod_Tot.json",
+		"ALL.D.Produto.subsets/zProd_Itens.json",
+		"ALL.D.Produto.subsets/zProd_Veic.json",
+		"ALL.D.Produto.subsets/zTela03_ProdTot.json"
+	]
+}

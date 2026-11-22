@@ -1,0 +1,27 @@
+{
+	"@type":"Hierarchy",
+	"Name":"CRT.M.015.Premissas_Safra",
+	"Elements":
+	[
+		{
+			"Name":"% Runoff",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"% LA Full",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"% LA Parcial",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"% WO",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"CRT.M.015.Premissas_Safra.subsets/zM_CRT015.json"
+	]
+}

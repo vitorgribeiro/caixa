@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"SYS.Sel_M030_SF",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('CRT.M.030.Carteira_Existentes')/Hierarchies('CRT.M.030.Carteira_Existentes')/Elements('Saldo Final')"
+		}
+	]
+}

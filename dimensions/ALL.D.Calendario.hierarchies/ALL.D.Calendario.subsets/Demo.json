@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Demo",
+	"Alias":"MEMBER_NAME",
+	"Expression":"{EXCEPT(DRILLDOWNMEMBER({[ALL.D.Calendario].[ALL.D.Calendario].[2026]} , {[ALL.D.Calendario].[ALL.D.Calendario].[2026]} , RECURSIVE) , {[ALL.D.Calendario].[ALL.D.Calendario].[2026]}),[ALL.D.Calendario].[ALL.D.Calendario].[2026],[ALL.D.Calendario].[ALL.D.Calendario].[2027],[ALL.D.Calendario].[ALL.D.Calendario].[2028],[ALL.D.Calendario].[ALL.D.Calendario].[2029],[ALL.D.Calendario].[ALL.D.Calendario].[2030],[ALL.D.Calendario].[ALL.D.Calendario].[2031],[ALL.D.Calendario].[ALL.D.Calendario].[2032],[ALL.D.Calendario].[ALL.D.Calendario].[Total Calendario]}"
+}

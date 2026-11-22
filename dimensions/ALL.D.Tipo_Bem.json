@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"ALL.D.Tipo_Bem",
+	"Hierarchies@Code.links":
+	[
+		"ALL.D.Tipo_Bem.hierarchies/ALL.D.Tipo_Bem.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('ALL.D.Tipo_Bem')/Hierarchies('ALL.D.Tipo_Bem')"
+	}
+}

@@ -1,0 +1,24 @@
+{
+	"@type":"Hierarchy",
+	"Name":"EDC.010.RWA_Fator",
+	"Elements":
+	[
+		{
+			"Name":"Base de Cálculo",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"% Fator Ponderação",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Base RWPAD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"% Mix Produto",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

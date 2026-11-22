@@ -1,0 +1,39 @@
+{
+	"@type":"Hierarchy",
+	"Name":"ALL.D.Origem",
+	"Elements":
+	[
+		{
+			"Name":"Total Carteira",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Novos",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Existentes",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total Carteira",
+			"ComponentName":"Novos",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Carteira",
+			"ComponentName":"Existentes",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"ALL.D.Origem.subsets/SYS.Origem.json",
+		"ALL.D.Origem.subsets/zOri_NovExist.json",
+		"ALL.D.Origem.subsets/zOri_Todas.json",
+		"ALL.D.Origem.subsets/zOri_Tot.json"
+	]
+}

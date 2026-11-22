@@ -1,0 +1,42 @@
+{
+	"@type":"Hierarchy",
+	"Name":"REC.M.100.Receita_Financeira",
+	"Elements":
+	[
+		{
+			"Name":"Saldo Medio",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"(+) Juros Carteira",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"(-) Custo Funding",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"(=) Margem Financeira",
+			"Type":"Consolidated"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"(=) Margem Financeira",
+			"ComponentName":"(+) Juros Carteira",
+			"Weight":1
+		},
+		{
+			"ParentName":"(=) Margem Financeira",
+			"ComponentName":"(-) Custo Funding",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"REC.M.100.Receita_Financeira.subsets/SYS.Met_Margem.json",
+		"REC.M.100.Receita_Financeira.subsets/zM_REC100.json",
+		"REC.M.100.Receita_Financeira.subsets/zM_REC100_Juros.json"
+	]
+}

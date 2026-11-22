@@ -1,0 +1,12 @@
+{
+	"@type":"Process",
+	"Name":"zCTI.Setup.Views_Tela03_Existentes",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"zCTI.Setup.Views_Tela03_Existentes.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}

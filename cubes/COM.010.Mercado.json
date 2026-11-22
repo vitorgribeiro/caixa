@@ -1,0 +1,27 @@
+{
+	"@type":"Cube",
+	"Name":"COM.010.Mercado",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('ALL.D.Calendario')"
+		},
+		{
+			"@id":"Dimensions('ALL.D.Versao')"
+		},
+		{
+			"@id":"Dimensions('ALL.D.Produto')"
+		},
+		{
+			"@id":"Dimensions('ALL.D.Canal')"
+		},
+		{
+			"@id":"Dimensions('COM.M.010.Mercado')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"COM.010.Mercado.views/Exemplo.json",
+		"COM.010.Mercado.views/Exemplo Sandbox.json"
+	]
+}

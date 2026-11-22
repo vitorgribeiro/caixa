@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"Alias":"MEMBER_NAME",
+	"Expression":"{DRILLDOWNMEMBER({[ALL.D.Canal].[ALL.D.Canal].[Total Canal]} , {[ALL.D.Canal].[ALL.D.Canal].[Total Canal]} , RECURSIVE)}"
+}

@@ -1,0 +1,17 @@
+{
+	"@type":"Cube",
+	"Name":"PRE.001.Premissas_Gerais",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('ALL.D.Calendario')"
+		},
+		{
+			"@id":"Dimensions('ALL.D.Versao')"
+		},
+		{
+			"@id":"Dimensions('PRE.M.001.Premissas_Gerais')"
+		}
+	],
+	"Views@Code.links":[]
+}

@@ -1,0 +1,24 @@
+{
+	"@type":"Hierarchy",
+	"Name":"ALL.D.Ano",
+	"Elements":
+	[
+		{
+			"Name":"2026",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2027",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2028",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2025",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

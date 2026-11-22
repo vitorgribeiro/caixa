@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"zTela03_CalProj",
+	"Expression":"{FILTER( {TM1FILTERBYLEVEL( {TM1SUBSETALL( [ALL.D.Calendario] )}, 0 )}, [ALL.D.Calendario].CurrentMember.Name >= \"2026/07\" )}"
+}

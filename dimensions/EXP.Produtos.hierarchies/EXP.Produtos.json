@@ -1,0 +1,61 @@
+{
+	"@type":"Hierarchy",
+	"Name":"EXP.Produtos",
+	"Elements":
+	[
+		{
+			"Name":"Ferrari",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Lamborghini",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Emprestimo Pessoal",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Produtos",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Carros",
+			"Type":"Consolidated"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total Produtos",
+			"ComponentName":"Emprestimo Pessoal",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Produtos",
+			"ComponentName":"Carros",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Produtos",
+			"ComponentName":"Ferrari",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Produtos",
+			"ComponentName":"Lamborghini",
+			"Weight":1
+		},
+		{
+			"ParentName":"Carros",
+			"ComponentName":"Ferrari",
+			"Weight":1
+		},
+		{
+			"ParentName":"Carros",
+			"ComponentName":"Lamborghini",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

@@ -1,0 +1,13 @@
+{
+	"@type":"Subset",
+	"Name":"zProd_Itens",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('ALL.D.Produto')/Hierarchies('ALL.D.Produto')/Elements('Veiculos')"
+		},
+		{
+			"@id":"Dimensions('ALL.D.Produto')/Hierarchies('ALL.D.Produto')/Elements('Emprestimo Pessoal')"
+		}
+	]
+}

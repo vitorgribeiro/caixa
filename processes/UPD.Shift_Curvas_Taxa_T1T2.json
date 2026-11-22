@@ -1,0 +1,13 @@
+{
+	"@type":"Process",
+	"Name":"UPD.Shift_Curvas_Taxa_T1T2",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"UPD.Shift_Curvas_Taxa_T1T2.ti",
+	"UIData":"_ParameterConstraints=e30=\f",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}

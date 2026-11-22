@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"EDC.050.RWA_Consolidado",
+	"Hierarchies@Code.links":
+	[
+		"EDC.050.RWA_Consolidado.hierarchies/EDC.050.RWA_Consolidado.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('EDC.050.RWA_Consolidado')/Hierarchies('EDC.050.RWA_Consolidado')"
+	}
+}

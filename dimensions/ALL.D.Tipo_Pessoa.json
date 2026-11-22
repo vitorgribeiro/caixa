@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"ALL.D.Tipo_Pessoa",
+	"Hierarchies@Code.links":
+	[
+		"ALL.D.Tipo_Pessoa.hierarchies/ALL.D.Tipo_Pessoa.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('ALL.D.Tipo_Pessoa')/Hierarchies('ALL.D.Tipo_Pessoa')"
+	}
+}

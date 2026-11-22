@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"zTela03_CalAnos",
+	"Expression":"{TM1FILTERBYLEVEL( {TM1SUBSETALL( [ALL.D.Calendario] )}, 1 )}"
+}

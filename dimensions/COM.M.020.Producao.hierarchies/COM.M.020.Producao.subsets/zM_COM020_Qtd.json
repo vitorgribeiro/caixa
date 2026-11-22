@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"zM_COM020_Qtd",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('COM.M.020.Producao')/Hierarchies('COM.M.020.Producao')/Elements('Qtd Contratos')"
+		}
+	]
+}

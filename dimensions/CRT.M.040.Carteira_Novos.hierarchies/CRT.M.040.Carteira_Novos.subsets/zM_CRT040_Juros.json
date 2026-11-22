@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"zM_CRT040_Juros",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('CRT.M.040.Carteira_Novos')/Hierarchies('CRT.M.040.Carteira_Novos')/Elements('(+) Juros')"
+		}
+	]
+}

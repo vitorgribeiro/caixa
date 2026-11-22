@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"EDC.100.Estudo_Capital",
+	"Hierarchies@Code.links":
+	[
+		"EDC.100.Estudo_Capital.hierarchies/EDC.100.Estudo_Capital.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('EDC.100.Estudo_Capital')/Hierarchies('EDC.100.Estudo_Capital')"
+	}
+}

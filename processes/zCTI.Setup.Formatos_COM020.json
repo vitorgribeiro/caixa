@@ -1,0 +1,12 @@
+{
+	"@type":"Process",
+	"Name":"zCTI.Setup.Formatos_COM020",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"zCTI.Setup.Formatos_COM020.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}

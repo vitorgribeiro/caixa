@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"REC.M.100.Receita_Financeira",
+	"Hierarchies@Code.links":
+	[
+		"REC.M.100.Receita_Financeira.hierarchies/REC.M.100.Receita_Financeira.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('REC.M.100.Receita_Financeira')/Hierarchies('REC.M.100.Receita_Financeira')"
+	}
+}

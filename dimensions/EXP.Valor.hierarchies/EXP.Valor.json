@@ -1,0 +1,33 @@
+{
+	"@type":"Hierarchy",
+	"Name":"EXP.Valor",
+	"Elements":
+	[
+		{
+			"Name":"Valor Total",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Valor",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ajuste",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Valor Total",
+			"ComponentName":"Valor",
+			"Weight":1
+		},
+		{
+			"ParentName":"Valor Total",
+			"ComponentName":"Ajuste",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

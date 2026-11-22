@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"CRT.M.010.Premissas_Calendario",
+	"Hierarchies@Code.links":
+	[
+		"CRT.M.010.Premissas_Calendario.hierarchies/CRT.M.010.Premissas_Calendario.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('CRT.M.010.Premissas_Calendario')/Hierarchies('CRT.M.010.Premissas_Calendario')"
+	}
+}

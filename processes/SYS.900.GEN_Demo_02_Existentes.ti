@@ -1,0 +1,84 @@
+#region Prolog
+#--- Carga sintetica dos Existentes em RE, corte Calendario=2024/07 -----------------------------
+# Saldo Carga + Parcelas Rem no corte 2024/07; % Taxa Media Carga (constante) replicada em RE
+# em TODOS os meses de projecao (2024/07..2030/12), pois a regra de juros a le em !Calendario.
+# Split 70/30, prazos ponderados renormalizados entre prazos vivos (prazo>idade). Canal Rede, PF.
+
+sCubo = 'CRT.030.Carteira_Existentes';
+sCal  = '2024/07';
+sCanal = 'Rede';
+sTP = 'PF';
+nTaxaV = 0.034;
+nTaxaE = 0.055;
+
+sSafras = '2024/07,2024/06,2024/05,2024/04,2024/03,2024/02,2024/01,2023/12,2023/11,2023/10,2023/09,2023/08,2023/07,2023/06,2023/05,2023/04,2023/03';
+sVals   = '73900000,63700000,56500000,43300000,35900000,22100000,17200000,17700000,8100000,5800000,3900000,2500000,1100000,1300000,1300000,600000,200000';
+
+vI = 1;
+WHILE( vI <= 17 );
+  vScanA = SCAN( ',', sSafras );
+  IF( vScanA = 0 ); sSaf = sSafras; ELSE; sSaf = SUBST( sSafras, 1, vScanA - 1 ); ENDIF;
+  vScanV = SCAN( ',', sVals );
+  IF( vScanV = 0 ); sVal = sVals; ELSE; sVal = SUBST( sVals, 1, vScanV - 1 ); ENDIF;
+  nSaldo = NUMBR( sVal );
+
+  vYr = NUMBR( SUBST( sSaf, 1, 4 ) );
+  vMo = NUMBR( SUBST( sSaf, 6, 2 ) );
+  vIdade = ( 2024 - vYr ) * 12 + ( 7 - vMo );
+
+  nA24V = IF( 24 > vIdade, 1, 0 );
+  nA36V = IF( 36 > vIdade, 1, 0 );
+  nA12E = IF( 12 > vIdade, 1, 0 );
+  nA24E = IF( 24 > vIdade, 1, 0 );
+
+  #--- Cutoff 2024/07: Saldo Carga + Parcelas Remanescentes ---
+  nShareV = 0.7 * nSaldo;
+  nWsumV = nA24V * 0.6 + nA36V * 0.4;
+  IF( nWsumV > 0 );
+    IF( nA24V = 1 );
+      CellPutN( nShareV * 0.6 / nWsumV, sCubo, sCal, sSaf, 'RE', 'Veiculos', sCanal, '24', sTP, 'Saldo Carga' );
+      CellPutN( 24 - vIdade, sCubo, sCal, sSaf, 'RE', 'Veiculos', sCanal, '24', sTP, 'Parcelas Remanescentes' );
+    ENDIF;
+    IF( nA36V = 1 );
+      CellPutN( nShareV * 0.4 / nWsumV, sCubo, sCal, sSaf, 'RE', 'Veiculos', sCanal, '36', sTP, 'Saldo Carga' );
+      CellPutN( 36 - vIdade, sCubo, sCal, sSaf, 'RE', 'Veiculos', sCanal, '36', sTP, 'Parcelas Remanescentes' );
+    ENDIF;
+  ENDIF;
+
+  nShareE = 0.3 * nSaldo;
+  nWsumE = nA12E * 0.5 + nA24E * 0.5;
+  IF( nWsumE > 0 );
+    IF( nA12E = 1 );
+      CellPutN( nShareE * 0.5 / nWsumE, sCubo, sCal, sSaf, 'RE', 'Emprestimo Pessoal', sCanal, '12', sTP, 'Saldo Carga' );
+      CellPutN( 12 - vIdade, sCubo, sCal, sSaf, 'RE', 'Emprestimo Pessoal', sCanal, '12', sTP, 'Parcelas Remanescentes' );
+    ENDIF;
+    IF( nA24E = 1 );
+      CellPutN( nShareE * 0.5 / nWsumE, sCubo, sCal, sSaf, 'RE', 'Emprestimo Pessoal', sCanal, '24', sTP, 'Saldo Carga' );
+      CellPutN( 24 - vIdade, sCubo, sCal, sSaf, 'RE', 'Emprestimo Pessoal', sCanal, '24', sTP, 'Parcelas Remanescentes' );
+    ENDIF;
+  ENDIF;
+
+  #--- % Taxa Media Carga (constante) em RE, todos os meses 2024/07..2030/12 ---
+  vAnoC = 2024;
+  WHILE( vAnoC <= 2030 );
+    vMesC = 1;
+    WHILE( vMesC <= 12 );
+      vIdxC = ( vAnoC - 2024 ) * 12 + vMesC;
+      IF( vIdxC >= 7 );
+        sMesC = IF( vMesC < 10, '0' | TRIM( STR( vMesC, 1, 0 ) ), TRIM( STR( vMesC, 2, 0 ) ) );
+        sCalC = TRIM( STR( vAnoC, 4, 0 ) ) | '/' | sMesC;
+        IF( nA24V = 1 ); CellPutN( nTaxaV, sCubo, sCalC, sSaf, 'RE', 'Veiculos', sCanal, '24', sTP, '% Taxa Media Carga' ); ENDIF;
+        IF( nA36V = 1 ); CellPutN( nTaxaV, sCubo, sCalC, sSaf, 'RE', 'Veiculos', sCanal, '36', sTP, '% Taxa Media Carga' ); ENDIF;
+        IF( nA12E = 1 ); CellPutN( nTaxaE, sCubo, sCalC, sSaf, 'RE', 'Emprestimo Pessoal', sCanal, '12', sTP, '% Taxa Media Carga' ); ENDIF;
+        IF( nA24E = 1 ); CellPutN( nTaxaE, sCubo, sCalC, sSaf, 'RE', 'Emprestimo Pessoal', sCanal, '24', sTP, '% Taxa Media Carga' ); ENDIF;
+      ENDIF;
+      vMesC = vMesC + 1;
+    END;
+    vAnoC = vAnoC + 1;
+  END;
+
+  IF( vScanA > 0 ); sSafras = DELET( sSafras, 1, vScanA ); ENDIF;
+  IF( vScanV > 0 ); sVals = DELET( sVals, 1, vScanV ); ENDIF;
+  vI = vI + 1;
+END;
+#endregion

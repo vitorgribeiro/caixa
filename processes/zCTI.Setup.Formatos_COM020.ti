@@ -1,0 +1,11 @@
+#region Prolog
+sDim='COM.M.020.Producao';
+AttrInsert(sDim,'','Format','S');
+AttrPutS('#,##0',sDim,'Qtd Contratos','Format');
+AttrPutS('#,##0.00',sDim,'Ticket Medio','Format');
+AttrPutS('0.00%',sDim,'% Entrada','Format');
+AttrPutS('0.00%',sDim,'% Mix Prazo','Format');
+AttrPutS('#,##0.00',sDim,'Valor do Bem Total','Format');
+AttrPutS('#,##0.00',sDim,'Valor Entrada','Format');
+AttrPutS('#,##0.00',sDim,'Valor Financiado Total','Format');
+#endregion

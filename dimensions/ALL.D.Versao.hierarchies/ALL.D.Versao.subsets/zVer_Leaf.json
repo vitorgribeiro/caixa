@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"zVer_Leaf",
+	"Expression":"{TM1FILTERBYLEVEL( {TM1SUBSETALL( [ALL.D.Versao] )}, 0 )}"
+}

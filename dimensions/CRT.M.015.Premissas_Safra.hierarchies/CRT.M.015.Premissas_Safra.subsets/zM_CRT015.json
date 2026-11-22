@@ -1,0 +1,19 @@
+{
+	"@type":"Subset",
+	"Name":"zM_CRT015",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('CRT.M.015.Premissas_Safra')/Hierarchies('CRT.M.015.Premissas_Safra')/Elements('% Runoff')"
+		},
+		{
+			"@id":"Dimensions('CRT.M.015.Premissas_Safra')/Hierarchies('CRT.M.015.Premissas_Safra')/Elements('% LA Full')"
+		},
+		{
+			"@id":"Dimensions('CRT.M.015.Premissas_Safra')/Hierarchies('CRT.M.015.Premissas_Safra')/Elements('% LA Parcial')"
+		},
+		{
+			"@id":"Dimensions('CRT.M.015.Premissas_Safra')/Hierarchies('CRT.M.015.Premissas_Safra')/Elements('% WO')"
+		}
+	]
+}

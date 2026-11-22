@@ -1,0 +1,42 @@
+{
+	"@type":"Hierarchy",
+	"Name":"COM.M.020.Producao",
+	"Elements":
+	[
+		{
+			"Name":"Qtd Contratos",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ticket Medio",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"% Entrada",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"% Mix Prazo",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Valor do Bem Total",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Valor Entrada",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Valor Financiado Total",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"COM.M.020.Producao.subsets/SYS.Met_Funil.json",
+		"COM.M.020.Producao.subsets/zM_COM020_Prem.json",
+		"COM.M.020.Producao.subsets/zM_COM020_Qtd.json",
+		"COM.M.020.Producao.subsets/zM_COM020_ValFin.json"
+	]
+}

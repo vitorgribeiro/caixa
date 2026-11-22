@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"zM_REC100_Juros",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('REC.M.100.Receita_Financeira')/Hierarchies('REC.M.100.Receita_Financeira')/Elements('(+) Juros Carteira')"
+		}
+	]
+}

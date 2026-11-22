@@ -1,0 +1,12 @@
+{
+	"@type":"Process",
+	"Name":"zCTI.Setup.Formatos",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"zCTI.Setup.Formatos.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}

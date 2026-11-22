@@ -1,0 +1,12 @@
+{
+	"@type":"Process",
+	"Name":"SYS.900.GEN_Demo_04_Views",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"SYS.900.GEN_Demo_04_Views.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}

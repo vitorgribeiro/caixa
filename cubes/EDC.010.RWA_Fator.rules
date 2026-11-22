@@ -1,0 +1,50 @@
+FEEDSTRINGS;
+SKIPCHECK;
+
+### CALCULA APENAS NAS CALCULADAS
+[]=N:IF( ELISANC( 'ALL.D.Versao', 'Versoes Dinamicas', !ALL.D.Versao )<>0
+  , CONTINUE
+  , STET );
+
+#### VIRADA DE CHAVE
+[]=N:IF( DB( 'PRE.001.Premissas_Gerais', !ALL.D.Calendario, !ALL.D.Versao, 'Real x Orcado' )@='Real', ['ALL.D.Versao':'ALL.D.Versao':'RE'], CONTINUE );
+
+### Base de Cálculo
+['EDC.010.RWA_Fator':'EDC.010.RWA_Fator':'Base de Cálculo']=N:
+  DB( 'CRT.050.Carteira_Consolidada', !ALL.D.Calendario, 'ALL.D.Safra':'Total Safra', !ALL.D.Versao, 'ALL.D.Origem':'Total Carteira', !ALL.D.Produto,'ALL.D.Canal':'Total Canal', 'ALL.D.Prazo':'Total Prazo', 'Saldo Final' );
+
+
+
+### Base RWPAD
+['EDC.010.RWA_Fator':'EDC.010.RWA_Fator':'Base RWPAD'] =N:
+  ['EDC.010.RWA_Fator':'EDC.010.RWA_Fator':'Base de Cálculo']*
+    ['EDC.010.RWA_Fator':'EDC.010.RWA_Fator':'% Fator Ponderação'];
+
+### % Fator Ponderação
+['EDC.010.RWA_Fator':'EDC.010.RWA_Fator':'% Fator Ponderação']=C:
+  ['EDC.010.RWA_Fator':'EDC.010.RWA_Fator':'Base RWPAD']\['EDC.010.RWA_Fator':'EDC.010.RWA_Fator':'Base de Cálculo'];
+
+### Mix Produto 
+['EDC.010.RWA_Fator':'EDC.010.RWA_Fator':'% Mix Produto']=
+  ['EDC.010.RWA_Fator':'EDC.010.RWA_Fator':'Base de Cálculo']\['EDC.010.RWA_Fator':'EDC.010.RWA_Fator':'Base de Cálculo','ALL.D.Produto':'ALL.D.Produto':'Total Produto'];
+
+FEEDERS;
+
+### FEEDER DE VIRADA DE CHAVE
+['ALL.D.Versao':'ALL.D.Versao':'RE']=>['ALL.D.Versao':'ALL.D.Versao':'Versoes Dinamicas'];
+
+### FEEDER Base RWPAD  
+['ALL.D.Versao':'ALL.D.Versao':'Versoes Dinamicas','EDC.010.RWA_Fator':'EDC.010.RWA_Fator':'% Fator Ponderação']=>
+  ['EDC.010.RWA_Fator':'EDC.010.RWA_Fator':'Base RWPAD'];
+
+### FEEDER Mix Produto
+['ALL.D.Versao':'ALL.D.Versao':'Versoes Dinamicas','EDC.010.RWA_Fator':'EDC.010.RWA_Fator':'Base de Cálculo']=>['EDC.010.RWA_Fator':'EDC.010.RWA_Fator':'% Mix Produto'];
+
+
+### FEEDERS Externos
+['ALL.D.Versao':'ALL.D.Versao':'Versoes Dinamicas','EDC.010.RWA_Fator':'EDC.010.RWA_Fator':'Base RWPAD','ALL.D.Produto':'ALL.D.Produto':'Emprestimo Pessoal']=>
+  DB( 'EDC.050.RWA_Consolidado', !ALL.D.Calendario, !ALL.D.Versao, 'RWA Empréstimo Pessoal' );
+
+['ALL.D.Versao':'ALL.D.Versao':'Versoes Dinamicas','EDC.010.RWA_Fator':'EDC.010.RWA_Fator':'Base RWPAD','ALL.D.Produto':'ALL.D.Produto':'Veiculos']=>
+  DB( 'EDC.050.RWA_Consolidado', !ALL.D.Calendario, !ALL.D.Versao, 'RWA Veículos' );
+

@@ -1,0 +1,14 @@
+SKIPCHECK;
+
+['ALL.D.Origem':'Novos'] = N:
+  DB( 'CRT.040.Carteira_Novos', !ALL.D.Calendario, !ALL.D.Safra, !ALL.D.Versao, !ALL.D.Produto, !ALL.D.Canal, !ALL.D.Prazo, 'Total Tipo Pessoa', !CRT.M.050.Carteira_Consolidada );
+
+['ALL.D.Origem':'Existentes'] = N:
+  DB( 'CRT.030.Carteira_Existentes', !ALL.D.Calendario, !ALL.D.Safra, !ALL.D.Versao, !ALL.D.Produto, !ALL.D.Canal, !ALL.D.Prazo, 'Total Tipo Pessoa', !CRT.M.050.Carteira_Consolidada );
+
+
+FEEDERS;
+
+### FEEDERS EXTERNOS
+['ALL.D.Versao':'ALL.D.Versao':'Versoes Dinamicas','CRT.M.050.Carteira_Consolidada':'CRT.M.050.Carteira_Consolidada':'Saldo Final']=>DB( 'EDC.010.RWA_Fator', !ALL.D.Calendario, !ALL.D.Versao, !ALL.D.Produto, 'Base de Cálculo' );
+

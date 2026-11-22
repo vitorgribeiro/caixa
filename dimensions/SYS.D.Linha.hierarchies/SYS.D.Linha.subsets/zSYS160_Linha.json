@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"zSYS160_Linha",
+	"Expression":"{TM1SUBSETALL( [SYS.D.Linha] )}"
+}

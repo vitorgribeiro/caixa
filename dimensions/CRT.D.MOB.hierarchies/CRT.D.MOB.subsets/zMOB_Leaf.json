@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"zMOB_Leaf",
+	"Expression":"{TM1FILTERBYLEVEL( {TM1SUBSETALL( [CRT.D.MOB] )}, 0 )}"
+}

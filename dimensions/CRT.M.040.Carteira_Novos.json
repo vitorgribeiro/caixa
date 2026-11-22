@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"CRT.M.040.Carteira_Novos",
+	"Hierarchies@Code.links":
+	[
+		"CRT.M.040.Carteira_Novos.hierarchies/CRT.M.040.Carteira_Novos.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('CRT.M.040.Carteira_Novos')/Hierarchies('CRT.M.040.Carteira_Novos')"
+	}
+}

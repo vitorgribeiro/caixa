@@ -1,0 +1,85 @@
+{
+	"@type":"Hierarchy",
+	"Name":"CRT.M.030.Carteira_Existentes",
+	"Elements":
+	[
+		{
+			"Name":"Volume",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Valor Financiado",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Saldo Inicial",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"(+) Juros",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"(-) Amortizacao",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"(-) LA Full",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"(-) LA Parcial",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"(-) WO",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Saldo Final",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SYS.MOB",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Saldo Carga",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"% Taxa Media Carga",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Parcelas Remanescentes",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"(-) LA Total",
+			"Type":"Consolidated"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"(-) LA Total",
+			"ComponentName":"(-) LA Full",
+			"Weight":1
+		},
+		{
+			"ParentName":"(-) LA Total",
+			"ComponentName":"(-) LA Parcial",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"CRT.M.030.Carteira_Existentes.subsets/SYS.Met_Carga.json",
+		"CRT.M.030.Carteira_Existentes.subsets/SYS.Sel_M030_SF.json",
+		"CRT.M.030.Carteira_Existentes.subsets/zM_CRT030_Carga.json",
+		"CRT.M.030.Carteira_Existentes.subsets/zTela03_Juros.json",
+		"CRT.M.030.Carteira_Existentes.subsets/zTela03_MedidasPivot.json",
+		"CRT.M.030.Carteira_Existentes.subsets/zTela03_SaldoFinal.json"
+	]
+}

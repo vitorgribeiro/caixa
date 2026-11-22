@@ -1,0 +1,39 @@
+{
+	"@type":"Hierarchy",
+	"Name":"ALL.D.Tipo_Pessoa",
+	"Elements":
+	[
+		{
+			"Name":"Total Tipo Pessoa",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"PF",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PJ",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total Tipo Pessoa",
+			"ComponentName":"PF",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Tipo Pessoa",
+			"ComponentName":"PJ",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"ALL.D.Tipo_Pessoa.subsets/Default.json",
+		"ALL.D.Tipo_Pessoa.subsets/SYS.Sel_TP_PF.json",
+		"ALL.D.Tipo_Pessoa.subsets/SYS.Sel_TP_Tot.json",
+		"ALL.D.Tipo_Pessoa.subsets/zTela03_TipoTot.json"
+	]
+}

@@ -1,0 +1,12 @@
+{
+	"@type":"Process",
+	"Name":"SYS.900.GEN_Demo_01_Premissas",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"SYS.900.GEN_Demo_01_Premissas.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}

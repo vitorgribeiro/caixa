@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"EDC.010.RWA_Fator",
+	"Hierarchies@Code.links":
+	[
+		"EDC.010.RWA_Fator.hierarchies/EDC.010.RWA_Fator.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('EDC.010.RWA_Fator')/Hierarchies('EDC.010.RWA_Fator')"
+	}
+}

@@ -1,0 +1,19 @@
+{
+	"@type":"Subset",
+	"Name":"SYS.Met_Margem",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('REC.M.100.Receita_Financeira')/Hierarchies('REC.M.100.Receita_Financeira')/Elements('Saldo Medio')"
+		},
+		{
+			"@id":"Dimensions('REC.M.100.Receita_Financeira')/Hierarchies('REC.M.100.Receita_Financeira')/Elements('(+) Juros Carteira')"
+		},
+		{
+			"@id":"Dimensions('REC.M.100.Receita_Financeira')/Hierarchies('REC.M.100.Receita_Financeira')/Elements('(-) Custo Funding')"
+		},
+		{
+			"@id":"Dimensions('REC.M.100.Receita_Financeira')/Hierarchies('REC.M.100.Receita_Financeira')/Elements('(=) Margem Financeira')"
+		}
+	]
+}

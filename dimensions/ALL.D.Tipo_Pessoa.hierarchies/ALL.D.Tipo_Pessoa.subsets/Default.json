@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"Alias":"MEMBER_NAME",
+	"Expression":"{DRILLDOWNMEMBER(TM1SubsetToSet([ALL.D.Tipo_Pessoa].[ALL.D.Tipo_Pessoa] , \"zTela03_TipoTot\" , \"public\") , {[ALL.D.Tipo_Pessoa].[ALL.D.Tipo_Pessoa].[Total Tipo Pessoa]})}"
+}

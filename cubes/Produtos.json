@@ -1,0 +1,29 @@
+{
+	"@type":"Cube",
+	"Name":"Produtos",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('ALL.D.Ano')"
+		},
+		{
+			"@id":"Dimensions('ALL.D.Mes')"
+		},
+		{
+			"@id":"Dimensions('ALL.D.Canal')"
+		},
+		{
+			"@id":"Dimensions('ALL.D.Centro_Custo')"
+		},
+		{
+			"@id":"Dimensions('ALL.D.Conta_Contabil')"
+		},
+		{
+			"@id":"Dimensions('EXP.Produtos')"
+		},
+		{
+			"@id":"Dimensions('EXP.Valor')"
+		}
+	],
+	"Views@Code.links":[]
+}

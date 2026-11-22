@@ -1,0 +1,158 @@
+#region Prolog
+#--- 1. ALL.D.Calendario + ALL.D.Safra --------------------------------------------------------
+vAnoIni = 2024;
+vAnoFim = 2030;
+sDimCal = 'ALL.D.Calendario';
+sDimSaf = 'ALL.D.Safra';
+IF( DimensionExists( sDimCal ) = 0 ); DimensionCreate( sDimCal ); ENDIF;
+IF( DimensionExists( sDimSaf ) = 0 ); DimensionCreate( sDimSaf ); ENDIF;
+DimensionElementInsertDirect( sDimCal, '', 'Total Calendario', 'C' );
+DimensionElementInsertDirect( sDimSaf, '', 'Total Safra', 'C' );
+vIdx = 0;
+vAno = vAnoIni;
+WHILE( vAno <= vAnoFim );
+  sAno = TRIM( STR( vAno, 4, 0 ) );
+  DimensionElementInsertDirect( sDimCal, '', sAno, 'C' );
+  DimensionElementComponentAddDirect( sDimCal, 'Total Calendario', sAno, 1 );
+  DimensionElementInsertDirect( sDimSaf, '', sAno, 'C' );
+  DimensionElementComponentAddDirect( sDimSaf, 'Total Safra', sAno, 1 );
+  vMes = 1;
+  WHILE( vMes <= 12 );
+    vIdx = vIdx + 1;
+    IF( vMes < 10 ); sMes = '0' | TRIM( STR( vMes, 1, 0 ) ); ELSE; sMes = TRIM( STR( vMes, 2, 0 ) ); ENDIF;
+    sEl = sAno | '/' | sMes;
+    DimensionElementInsertDirect( sDimCal, '', sEl, 'N' );
+    DimensionElementComponentAddDirect( sDimCal, sAno, sEl, 1 );
+    DimensionElementInsertDirect( sDimSaf, '', sEl, 'N' );
+    DimensionElementComponentAddDirect( sDimSaf, sAno, sEl, 1 );
+    vMes = vMes + 1;
+  END;
+  vAno = vAno + 1;
+END;
+
+#--- 1b. ALL.D.Safra extensao 2023 (safras de existentes; corte 2024/07) ----------------------
+DimensionElementInsertDirect( sDimSaf, '', '2023', 'C' );
+DimensionElementComponentAddDirect( sDimSaf, 'Total Safra', '2023', 1 );
+vMes = 3;
+WHILE( vMes <= 12 );
+  IF( vMes < 10 ); sMes = '0' | TRIM( STR( vMes, 1, 0 ) ); ELSE; sMes = TRIM( STR( vMes, 2, 0 ) ); ENDIF;
+  sEl = '2023/' | sMes;
+  DimensionElementInsertDirect( sDimSaf, '', sEl, 'N' );
+  DimensionElementComponentAddDirect( sDimSaf, '2023', sEl, 1 );
+  vMes = vMes + 1;
+END;
+
+#--- 2. Atributos do Calendario ---------------------------------------------------------------
+AttrInsert( sDimCal, '', 'Previous Period', 'S' );
+AttrInsert( sDimCal, '', 'Next Period', 'S' );
+AttrInsert( sDimCal, '', 'Number', 'S' );
+AttrInsert( sDimCal, '', 'Indice', 'N' );
+AttrInsert( sDimSaf, '', 'Previous Period', 'S' );
+vIdx = 0;
+sPrev = '';
+vAno = vAnoIni;
+WHILE( vAno <= vAnoFim );
+  sAno = TRIM( STR( vAno, 4, 0 ) );
+  vMes = 1;
+  WHILE( vMes <= 12 );
+    vIdx = vIdx + 1;
+    IF( vMes < 10 ); sMes = '0' | TRIM( STR( vMes, 1, 0 ) ); ELSE; sMes = TRIM( STR( vMes, 2, 0 ) ); ENDIF;
+    sEl = sAno | '/' | sMes;
+    AttrPutS( sMes | sAno, sDimCal, sEl, 'Number' );
+    AttrPutN( vIdx, sDimCal, sEl, 'Indice' );
+    IF( sPrev @<> '' );
+      AttrPutS( sPrev, sDimCal, sEl, 'Previous Period' );
+      AttrPutS( sEl, sDimCal, sPrev, 'Next Period' );
+      AttrPutS( sPrev, sDimSaf, sEl, 'Previous Period' );
+    ENDIF;
+    sPrev = sEl;
+    vMes = vMes + 1;
+  END;
+  vAno = vAno + 1;
+END;
+
+#--- 3. ALL.D.Versao (RE + T1/T2) -------------------------------------------------------------
+sDim = 'ALL.D.Versao';
+IF( DimensionExists( sDim ) = 0 ); DimensionCreate( sDim ); ENDIF;
+DimensionElementInsertDirect( sDim, '', 'RE', 'N' );
+DimensionElementInsertDirect( sDim, '', 'Versoes Dinamicas', 'C' );
+DimensionElementInsertDirect( sDim, '', 'T1', 'N' );
+DimensionElementInsertDirect( sDim, '', 'T2', 'N' );
+DimensionElementComponentAddDirect( sDim, 'Versoes Dinamicas', 'T1', 1 );
+DimensionElementComponentAddDirect( sDim, 'Versoes Dinamicas', 'T2', 1 );
+
+#--- 4. ALL.D.Produto -------------------------------------------------------------------------
+sDim = 'ALL.D.Produto';
+IF( DimensionExists( sDim ) = 0 ); DimensionCreate( sDim ); ENDIF;
+DimensionElementInsertDirect( sDim, '', 'Total Produto', 'C' );
+DimensionElementInsertDirect( sDim, '', 'Veiculos', 'N' );
+DimensionElementInsertDirect( sDim, '', 'Emprestimo Pessoal', 'N' );
+DimensionElementComponentAddDirect( sDim, 'Total Produto', 'Veiculos', 1 );
+DimensionElementComponentAddDirect( sDim, 'Total Produto', 'Emprestimo Pessoal', 1 );
+AttrInsert( sDim, '', 'Tem Entrada', 'N' );
+AttrPutN( 1, sDim, 'Veiculos', 'Tem Entrada' );
+AttrPutN( 0, sDim, 'Emprestimo Pessoal', 'Tem Entrada' );
+
+#--- 5. ALL.D.Canal ---------------------------------------------------------------------------
+sDim = 'ALL.D.Canal';
+IF( DimensionExists( sDim ) = 0 ); DimensionCreate( sDim ); ENDIF;
+DimensionElementInsertDirect( sDim, '', 'Total Canal', 'C' );
+DimensionElementInsertDirect( sDim, '', 'Rede', 'N' );
+DimensionElementInsertDirect( sDim, '', 'Loja', 'N' );
+DimensionElementInsertDirect( sDim, '', 'Digital', 'N' );
+DimensionElementComponentAddDirect( sDim, 'Total Canal', 'Rede', 1 );
+DimensionElementComponentAddDirect( sDim, 'Total Canal', 'Loja', 1 );
+DimensionElementComponentAddDirect( sDim, 'Total Canal', 'Digital', 1 );
+
+#--- 6. ALL.D.Prazo ---------------------------------------------------------------------------
+sDim = 'ALL.D.Prazo';
+IF( DimensionExists( sDim ) = 0 ); DimensionCreate( sDim ); ENDIF;
+DimensionElementInsertDirect( sDim, '', 'Total Prazo', 'C' );
+AttrInsert( sDim, '', 'Prazo', 'N' );
+vPrazo = 12;
+WHILE( vPrazo <= 72 );
+  sEl = TRIM( STR( vPrazo, 2, 0 ) );
+  DimensionElementInsertDirect( sDim, '', sEl, 'N' );
+  DimensionElementComponentAddDirect( sDim, 'Total Prazo', sEl, 1 );
+  AttrPutN( vPrazo, sDim, sEl, 'Prazo' );
+  vPrazo = vPrazo + 12;
+END;
+
+#--- 7. ALL.D.Tipo_Pessoa / Tipo_Bem / Origem -------------------------------------------------
+sDim = 'ALL.D.Tipo_Pessoa';
+IF( DimensionExists( sDim ) = 0 ); DimensionCreate( sDim ); ENDIF;
+DimensionElementInsertDirect( sDim, '', 'Total Tipo Pessoa', 'C' );
+DimensionElementInsertDirect( sDim, '', 'PF', 'N' );
+DimensionElementInsertDirect( sDim, '', 'PJ', 'N' );
+DimensionElementComponentAddDirect( sDim, 'Total Tipo Pessoa', 'PF', 1 );
+DimensionElementComponentAddDirect( sDim, 'Total Tipo Pessoa', 'PJ', 1 );
+sDim = 'ALL.D.Tipo_Bem';
+IF( DimensionExists( sDim ) = 0 ); DimensionCreate( sDim ); ENDIF;
+DimensionElementInsertDirect( sDim, '', 'Total Tipo Bem', 'C' );
+DimensionElementInsertDirect( sDim, '', 'Novo', 'N' );
+DimensionElementInsertDirect( sDim, '', 'Usado', 'N' );
+DimensionElementComponentAddDirect( sDim, 'Total Tipo Bem', 'Novo', 1 );
+DimensionElementComponentAddDirect( sDim, 'Total Tipo Bem', 'Usado', 1 );
+sDim = 'ALL.D.Origem';
+IF( DimensionExists( sDim ) = 0 ); DimensionCreate( sDim ); ENDIF;
+DimensionElementInsertDirect( sDim, '', 'Total Carteira', 'C' );
+DimensionElementInsertDirect( sDim, '', 'Novos', 'N' );
+DimensionElementInsertDirect( sDim, '', 'Existentes', 'N' );
+DimensionElementComponentAddDirect( sDim, 'Total Carteira', 'Novos', 1 );
+DimensionElementComponentAddDirect( sDim, 'Total Carteira', 'Existentes', 1 );
+
+#--- 8. CRT.D.MOB -----------------------------------------------------------------------------
+sDim = 'CRT.D.MOB';
+IF( DimensionExists( sDim ) = 0 ); DimensionCreate( sDim ); ENDIF;
+DimensionElementInsertDirect( sDim, '', 'Total MOB', 'C' );
+vMob = 1;
+WHILE( vMob <= 72 );
+  sEl = TRIM( STR( vMob, 2, 0 ) );
+  DimensionElementInsertDirect( sDim, '', sEl, 'N' );
+  DimensionElementComponentAddDirect( sDim, 'Total MOB', sEl, 1 );
+  vMob = vMob + 1;
+END;
+#endregion
+#region Epilog
+# Proximo do pacote: SYS.000.UPD_Dimensoes_01_Metricas (dimensoes XXX.M.*)
+#endregion

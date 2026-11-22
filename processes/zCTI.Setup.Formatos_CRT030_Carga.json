@@ -1,0 +1,12 @@
+{
+	"@type":"Process",
+	"Name":"zCTI.Setup.Formatos_CRT030_Carga",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"zCTI.Setup.Formatos_CRT030_Carga.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}

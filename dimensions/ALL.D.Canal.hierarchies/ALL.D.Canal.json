@@ -1,0 +1,48 @@
+{
+	"@type":"Hierarchy",
+	"Name":"ALL.D.Canal",
+	"Elements":
+	[
+		{
+			"Name":"Total Canal",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Rede",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Loja",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Digital",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total Canal",
+			"ComponentName":"Rede",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Canal",
+			"ComponentName":"Loja",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Canal",
+			"ComponentName":"Digital",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"ALL.D.Canal.subsets/Default.json",
+		"ALL.D.Canal.subsets/SYS.Sel_Canal_Tot.json",
+		"ALL.D.Canal.subsets/zCanal_Itens.json",
+		"ALL.D.Canal.subsets/zTela03_CanalTot.json"
+	]
+}

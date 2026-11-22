@@ -1,0 +1,16 @@
+{
+	"@type":"Subset",
+	"Name":"zCanal_Itens",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('ALL.D.Canal')/Hierarchies('ALL.D.Canal')/Elements('Rede')"
+		},
+		{
+			"@id":"Dimensions('ALL.D.Canal')/Hierarchies('ALL.D.Canal')/Elements('Loja')"
+		},
+		{
+			"@id":"Dimensions('ALL.D.Canal')/Hierarchies('ALL.D.Canal')/Elements('Digital')"
+		}
+	]
+}

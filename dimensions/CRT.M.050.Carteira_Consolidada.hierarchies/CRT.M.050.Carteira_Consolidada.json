@@ -1,0 +1,38 @@
+{
+	"@type":"Hierarchy",
+	"Name":"CRT.M.050.Carteira_Consolidada",
+	"Elements":
+	[
+		{
+			"Name":"Saldo Inicial",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"(+) Juros",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"(-) Amortizacao",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"(-) LA Total",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"(-) WO",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Saldo Final",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"CRT.M.050.Carteira_Consolidada.subsets/SYS.Sel_M050_SF.json",
+		"CRT.M.050.Carteira_Consolidada.subsets/zM_CRT050_Juros.json",
+		"CRT.M.050.Carteira_Consolidada.subsets/zM_CRT050_Motor.json",
+		"CRT.M.050.Carteira_Consolidada.subsets/zM_CRT050_SF.json"
+	]
+}

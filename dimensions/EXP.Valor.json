@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"EXP.Valor",
+	"Hierarchies@Code.links":
+	[
+		"EXP.Valor.hierarchies/EXP.Valor.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('EXP.Valor')/Hierarchies('EXP.Valor')"
+	}
+}

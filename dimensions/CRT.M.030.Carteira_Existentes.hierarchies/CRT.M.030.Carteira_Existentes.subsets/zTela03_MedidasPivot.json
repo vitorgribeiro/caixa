@@ -1,0 +1,28 @@
+{
+	"@type":"Subset",
+	"Name":"zTela03_MedidasPivot",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('CRT.M.030.Carteira_Existentes')/Hierarchies('CRT.M.030.Carteira_Existentes')/Elements('Saldo Inicial')"
+		},
+		{
+			"@id":"Dimensions('CRT.M.030.Carteira_Existentes')/Hierarchies('CRT.M.030.Carteira_Existentes')/Elements('(+) Juros')"
+		},
+		{
+			"@id":"Dimensions('CRT.M.030.Carteira_Existentes')/Hierarchies('CRT.M.030.Carteira_Existentes')/Elements('(-) Amortizacao')"
+		},
+		{
+			"@id":"Dimensions('CRT.M.030.Carteira_Existentes')/Hierarchies('CRT.M.030.Carteira_Existentes')/Elements('(-) LA Full')"
+		},
+		{
+			"@id":"Dimensions('CRT.M.030.Carteira_Existentes')/Hierarchies('CRT.M.030.Carteira_Existentes')/Elements('(-) LA Parcial')"
+		},
+		{
+			"@id":"Dimensions('CRT.M.030.Carteira_Existentes')/Hierarchies('CRT.M.030.Carteira_Existentes')/Elements('(-) WO')"
+		},
+		{
+			"@id":"Dimensions('CRT.M.030.Carteira_Existentes')/Hierarchies('CRT.M.030.Carteira_Existentes')/Elements('Saldo Final')"
+		}
+	]
+}

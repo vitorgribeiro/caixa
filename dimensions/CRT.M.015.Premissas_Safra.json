@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"CRT.M.015.Premissas_Safra",
+	"Hierarchies@Code.links":
+	[
+		"CRT.M.015.Premissas_Safra.hierarchies/CRT.M.015.Premissas_Safra.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('CRT.M.015.Premissas_Safra')/Hierarchies('CRT.M.015.Premissas_Safra')"
+	}
+}

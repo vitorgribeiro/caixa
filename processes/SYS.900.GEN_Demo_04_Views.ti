@@ -1,0 +1,141 @@
+#region Prolog
+#--- Views RPT.Tela* + subsets. Titulos via subset de 1 elemento (ViewTitleElementSet aborta nesta versao). Idempotente. ---
+
+#=== Subsets de eixo (metrica / produto / origem) ===
+IF( SubsetExists( 'CRT.M.030.Carteira_Existentes', 'SYS.Met_Carga' ) = 1 ); SubsetDestroy( 'CRT.M.030.Carteira_Existentes', 'SYS.Met_Carga' ); ENDIF;
+SubsetCreate( 'CRT.M.030.Carteira_Existentes', 'SYS.Met_Carga' );
+SubsetElementInsert( 'CRT.M.030.Carteira_Existentes', 'SYS.Met_Carga', 'Saldo Carga', 1 );
+SubsetElementInsert( 'CRT.M.030.Carteira_Existentes', 'SYS.Met_Carga', '% Taxa Media Carga', 2 );
+SubsetElementInsert( 'CRT.M.030.Carteira_Existentes', 'SYS.Met_Carga', 'Parcelas Remanescentes', 3 );
+IF( SubsetExists( 'COM.M.020.Producao', 'SYS.Met_Funil' ) = 1 ); SubsetDestroy( 'COM.M.020.Producao', 'SYS.Met_Funil' ); ENDIF;
+SubsetCreate( 'COM.M.020.Producao', 'SYS.Met_Funil' );
+SubsetElementInsert( 'COM.M.020.Producao', 'SYS.Met_Funil', 'Qtd Contratos', 1 );
+SubsetElementInsert( 'COM.M.020.Producao', 'SYS.Met_Funil', 'Ticket Medio', 2 );
+SubsetElementInsert( 'COM.M.020.Producao', 'SYS.Met_Funil', '% Entrada', 3 );
+SubsetElementInsert( 'COM.M.020.Producao', 'SYS.Met_Funil', 'Valor Financiado Total', 4 );
+IF( SubsetExists( 'REC.M.100.Receita_Financeira', 'SYS.Met_Margem' ) = 1 ); SubsetDestroy( 'REC.M.100.Receita_Financeira', 'SYS.Met_Margem' ); ENDIF;
+SubsetCreate( 'REC.M.100.Receita_Financeira', 'SYS.Met_Margem' );
+SubsetElementInsert( 'REC.M.100.Receita_Financeira', 'SYS.Met_Margem', 'Saldo Medio', 1 );
+SubsetElementInsert( 'REC.M.100.Receita_Financeira', 'SYS.Met_Margem', '(+) Juros Carteira', 2 );
+SubsetElementInsert( 'REC.M.100.Receita_Financeira', 'SYS.Met_Margem', '(-) Custo Funding', 3 );
+SubsetElementInsert( 'REC.M.100.Receita_Financeira', 'SYS.Met_Margem', '(=) Margem Financeira', 4 );
+IF( SubsetExists( 'ALL.D.Produto', 'SYS.Produtos' ) = 1 ); SubsetDestroy( 'ALL.D.Produto', 'SYS.Produtos' ); ENDIF;
+SubsetCreate( 'ALL.D.Produto', 'SYS.Produtos' );
+SubsetElementInsert( 'ALL.D.Produto', 'SYS.Produtos', 'Veiculos', 1 );
+SubsetElementInsert( 'ALL.D.Produto', 'SYS.Produtos', 'Emprestimo Pessoal', 2 );
+IF( SubsetExists( 'ALL.D.Origem', 'SYS.Origem' ) = 1 ); SubsetDestroy( 'ALL.D.Origem', 'SYS.Origem' ); ENDIF;
+SubsetCreate( 'ALL.D.Origem', 'SYS.Origem' );
+SubsetElementInsert( 'ALL.D.Origem', 'SYS.Origem', 'Total Carteira', 1 );
+SubsetElementInsert( 'ALL.D.Origem', 'SYS.Origem', 'Novos', 2 );
+SubsetElementInsert( 'ALL.D.Origem', 'SYS.Origem', 'Existentes', 3 );
+
+#=== Subsets de 1 elemento (titulos) ===
+IF( SubsetExists( 'ALL.D.Versao', 'SYS.Sel_Ver_T1' ) = 1 ); SubsetDestroy( 'ALL.D.Versao', 'SYS.Sel_Ver_T1' ); ENDIF;
+SubsetCreate( 'ALL.D.Versao', 'SYS.Sel_Ver_T1' ); SubsetElementInsert( 'ALL.D.Versao', 'SYS.Sel_Ver_T1', 'T1', 1 );
+IF( SubsetExists( 'ALL.D.Versao', 'SYS.Sel_Ver_RE' ) = 1 ); SubsetDestroy( 'ALL.D.Versao', 'SYS.Sel_Ver_RE' ); ENDIF;
+SubsetCreate( 'ALL.D.Versao', 'SYS.Sel_Ver_RE' ); SubsetElementInsert( 'ALL.D.Versao', 'SYS.Sel_Ver_RE', 'RE', 1 );
+IF( SubsetExists( 'ALL.D.Produto', 'SYS.Sel_Prod_Tot' ) = 1 ); SubsetDestroy( 'ALL.D.Produto', 'SYS.Sel_Prod_Tot' ); ENDIF;
+SubsetCreate( 'ALL.D.Produto', 'SYS.Sel_Prod_Tot' ); SubsetElementInsert( 'ALL.D.Produto', 'SYS.Sel_Prod_Tot', 'Total Produto', 1 );
+IF( SubsetExists( 'ALL.D.Canal', 'SYS.Sel_Canal_Tot' ) = 1 ); SubsetDestroy( 'ALL.D.Canal', 'SYS.Sel_Canal_Tot' ); ENDIF;
+SubsetCreate( 'ALL.D.Canal', 'SYS.Sel_Canal_Tot' ); SubsetElementInsert( 'ALL.D.Canal', 'SYS.Sel_Canal_Tot', 'Total Canal', 1 );
+IF( SubsetExists( 'ALL.D.Prazo', 'SYS.Sel_Prazo_Tot' ) = 1 ); SubsetDestroy( 'ALL.D.Prazo', 'SYS.Sel_Prazo_Tot' ); ENDIF;
+SubsetCreate( 'ALL.D.Prazo', 'SYS.Sel_Prazo_Tot' ); SubsetElementInsert( 'ALL.D.Prazo', 'SYS.Sel_Prazo_Tot', 'Total Prazo', 1 );
+IF( SubsetExists( 'ALL.D.Tipo_Pessoa', 'SYS.Sel_TP_Tot' ) = 1 ); SubsetDestroy( 'ALL.D.Tipo_Pessoa', 'SYS.Sel_TP_Tot' ); ENDIF;
+SubsetCreate( 'ALL.D.Tipo_Pessoa', 'SYS.Sel_TP_Tot' ); SubsetElementInsert( 'ALL.D.Tipo_Pessoa', 'SYS.Sel_TP_Tot', 'Total Tipo Pessoa', 1 );
+IF( SubsetExists( 'ALL.D.Tipo_Pessoa', 'SYS.Sel_TP_PF' ) = 1 ); SubsetDestroy( 'ALL.D.Tipo_Pessoa', 'SYS.Sel_TP_PF' ); ENDIF;
+SubsetCreate( 'ALL.D.Tipo_Pessoa', 'SYS.Sel_TP_PF' ); SubsetElementInsert( 'ALL.D.Tipo_Pessoa', 'SYS.Sel_TP_PF', 'PF', 1 );
+IF( SubsetExists( 'ALL.D.Calendario', 'SYS.Sel_Cal_2407' ) = 1 ); SubsetDestroy( 'ALL.D.Calendario', 'SYS.Sel_Cal_2407' ); ENDIF;
+SubsetCreate( 'ALL.D.Calendario', 'SYS.Sel_Cal_2407' ); SubsetElementInsert( 'ALL.D.Calendario', 'SYS.Sel_Cal_2407', '2024/07', 1 );
+IF( SubsetExists( 'ALL.D.Calendario', 'SYS.Sel_Cal_2408' ) = 1 ); SubsetDestroy( 'ALL.D.Calendario', 'SYS.Sel_Cal_2408' ); ENDIF;
+SubsetCreate( 'ALL.D.Calendario', 'SYS.Sel_Cal_2408' ); SubsetElementInsert( 'ALL.D.Calendario', 'SYS.Sel_Cal_2408', '2024/08', 1 );
+IF( SubsetExists( 'ALL.D.Calendario', 'SYS.Sel_Cal_2412' ) = 1 ); SubsetDestroy( 'ALL.D.Calendario', 'SYS.Sel_Cal_2412' ); ENDIF;
+SubsetCreate( 'ALL.D.Calendario', 'SYS.Sel_Cal_2412' ); SubsetElementInsert( 'ALL.D.Calendario', 'SYS.Sel_Cal_2412', '2024/12', 1 );
+IF( SubsetExists( 'ALL.D.Safra', 'SYS.Sel_Safra_Tot' ) = 1 ); SubsetDestroy( 'ALL.D.Safra', 'SYS.Sel_Safra_Tot' ); ENDIF;
+SubsetCreate( 'ALL.D.Safra', 'SYS.Sel_Safra_Tot' ); SubsetElementInsert( 'ALL.D.Safra', 'SYS.Sel_Safra_Tot', 'Total Safra', 1 );
+IF( SubsetExists( 'CRT.M.040.Carteira_Novos', 'SYS.Sel_M040_SF' ) = 1 ); SubsetDestroy( 'CRT.M.040.Carteira_Novos', 'SYS.Sel_M040_SF' ); ENDIF;
+SubsetCreate( 'CRT.M.040.Carteira_Novos', 'SYS.Sel_M040_SF' ); SubsetElementInsert( 'CRT.M.040.Carteira_Novos', 'SYS.Sel_M040_SF', 'Saldo Final', 1 );
+IF( SubsetExists( 'CRT.M.030.Carteira_Existentes', 'SYS.Sel_M030_SF' ) = 1 ); SubsetDestroy( 'CRT.M.030.Carteira_Existentes', 'SYS.Sel_M030_SF' ); ENDIF;
+SubsetCreate( 'CRT.M.030.Carteira_Existentes', 'SYS.Sel_M030_SF' ); SubsetElementInsert( 'CRT.M.030.Carteira_Existentes', 'SYS.Sel_M030_SF', 'Saldo Final', 1 );
+IF( SubsetExists( 'CRT.M.050.Carteira_Consolidada', 'SYS.Sel_M050_SF' ) = 1 ); SubsetDestroy( 'CRT.M.050.Carteira_Consolidada', 'SYS.Sel_M050_SF' ); ENDIF;
+SubsetCreate( 'CRT.M.050.Carteira_Consolidada', 'SYS.Sel_M050_SF' ); SubsetElementInsert( 'CRT.M.050.Carteira_Consolidada', 'SYS.Sel_M050_SF', 'Saldo Final', 1 );
+
+#=== Tela 1 - Carga Existentes ===
+sC = 'CRT.030.Carteira_Existentes'; sV = 'RPT.Tela1_Carga_Existentes';
+IF( ViewExists( sC, sV ) = 1 ); ViewDestroy( sC, sV ); ENDIF;
+ViewCreate( sC, sV );
+ViewSubsetAssign( sC, sV, 'ALL.D.Safra', 'SYS.Safras_Ativas' ); ViewRowDimensionSet( sC, sV, 'ALL.D.Safra', 1 );
+ViewSubsetAssign( sC, sV, 'CRT.M.030.Carteira_Existentes', 'SYS.Met_Carga' ); ViewColumnDimensionSet( sC, sV, 'CRT.M.030.Carteira_Existentes', 1 );
+ViewSubsetAssign( sC, sV, 'ALL.D.Calendario', 'SYS.Sel_Cal_2407' );
+ViewSubsetAssign( sC, sV, 'ALL.D.Versao', 'SYS.Sel_Ver_RE' );
+ViewSubsetAssign( sC, sV, 'ALL.D.Produto', 'SYS.Sel_Prod_Tot' );
+ViewSubsetAssign( sC, sV, 'ALL.D.Canal', 'SYS.Sel_Canal_Tot' );
+ViewSubsetAssign( sC, sV, 'ALL.D.Prazo', 'SYS.Sel_Prazo_Tot' );
+ViewSubsetAssign( sC, sV, 'ALL.D.Tipo_Pessoa', 'SYS.Sel_TP_Tot' );
+ViewExtractSkipZeroesSet( sC, sV, 1 );
+
+#=== Tela 2 - Funil Producao ===
+sC = 'COM.020.Producao'; sV = 'RPT.Tela2_Funil_Producao';
+IF( ViewExists( sC, sV ) = 1 ); ViewDestroy( sC, sV ); ENDIF;
+ViewCreate( sC, sV );
+ViewSubsetAssign( sC, sV, 'ALL.D.Produto', 'SYS.Produtos' ); ViewRowDimensionSet( sC, sV, 'ALL.D.Produto', 1 );
+ViewSubsetAssign( sC, sV, 'COM.M.020.Producao', 'SYS.Met_Funil' ); ViewColumnDimensionSet( sC, sV, 'COM.M.020.Producao', 1 );
+ViewSubsetAssign( sC, sV, 'ALL.D.Calendario', 'SYS.Sel_Cal_2408' );
+ViewSubsetAssign( sC, sV, 'ALL.D.Versao', 'SYS.Sel_Ver_T1' );
+ViewSubsetAssign( sC, sV, 'ALL.D.Canal', 'SYS.Sel_Canal_Tot' );
+ViewSubsetAssign( sC, sV, 'ALL.D.Prazo', 'SYS.Sel_Prazo_Tot' );
+ViewSubsetAssign( sC, sV, 'ALL.D.Tipo_Pessoa', 'SYS.Sel_TP_PF' );
+ViewExtractSkipZeroesSet( sC, sV, 1 );
+
+#=== Tela 3 - Triangulo Novos ===
+sC = 'CRT.040.Carteira_Novos'; sV = 'RPT.Tela3_Triangulo_Novos';
+IF( ViewExists( sC, sV ) = 1 ); ViewDestroy( sC, sV ); ENDIF;
+ViewCreate( sC, sV );
+ViewSubsetAssign( sC, sV, 'ALL.D.Safra', 'SYS.Safras_Ativas' ); ViewRowDimensionSet( sC, sV, 'ALL.D.Safra', 1 );
+ViewSubsetAssign( sC, sV, 'ALL.D.Calendario', 'SYS.Horizonte_Projecao' ); ViewColumnDimensionSet( sC, sV, 'ALL.D.Calendario', 1 );
+ViewSubsetAssign( sC, sV, 'ALL.D.Versao', 'SYS.Sel_Ver_T1' );
+ViewSubsetAssign( sC, sV, 'ALL.D.Produto', 'SYS.Sel_Prod_Tot' );
+ViewSubsetAssign( sC, sV, 'ALL.D.Canal', 'SYS.Sel_Canal_Tot' );
+ViewSubsetAssign( sC, sV, 'ALL.D.Prazo', 'SYS.Sel_Prazo_Tot' );
+ViewSubsetAssign( sC, sV, 'ALL.D.Tipo_Pessoa', 'SYS.Sel_TP_Tot' );
+ViewSubsetAssign( sC, sV, 'CRT.M.040.Carteira_Novos', 'SYS.Sel_M040_SF' );
+ViewExtractSkipZeroesSet( sC, sV, 1 );
+
+#=== Tela 4 - Triangulo Existentes ===
+sC = 'CRT.030.Carteira_Existentes'; sV = 'RPT.Tela4_Triangulo_Existentes';
+IF( ViewExists( sC, sV ) = 1 ); ViewDestroy( sC, sV ); ENDIF;
+ViewCreate( sC, sV );
+ViewSubsetAssign( sC, sV, 'ALL.D.Safra', 'SYS.Safras_Ativas' ); ViewRowDimensionSet( sC, sV, 'ALL.D.Safra', 1 );
+ViewSubsetAssign( sC, sV, 'ALL.D.Calendario', 'SYS.Horizonte_Projecao' ); ViewColumnDimensionSet( sC, sV, 'ALL.D.Calendario', 1 );
+ViewSubsetAssign( sC, sV, 'ALL.D.Versao', 'SYS.Sel_Ver_T1' );
+ViewSubsetAssign( sC, sV, 'ALL.D.Produto', 'SYS.Sel_Prod_Tot' );
+ViewSubsetAssign( sC, sV, 'ALL.D.Canal', 'SYS.Sel_Canal_Tot' );
+ViewSubsetAssign( sC, sV, 'ALL.D.Prazo', 'SYS.Sel_Prazo_Tot' );
+ViewSubsetAssign( sC, sV, 'ALL.D.Tipo_Pessoa', 'SYS.Sel_TP_Tot' );
+ViewSubsetAssign( sC, sV, 'CRT.M.030.Carteira_Existentes', 'SYS.Sel_M030_SF' );
+ViewExtractSkipZeroesSet( sC, sV, 1 );
+
+#=== Tela 5 - Margem por Cenario ===
+sC = 'REC.100.Receita_Financeira'; sV = 'RPT.Tela5_Margem_Cenarios';
+IF( ViewExists( sC, sV ) = 1 ); ViewDestroy( sC, sV ); ENDIF;
+ViewCreate( sC, sV );
+ViewSubsetAssign( sC, sV, 'REC.M.100.Receita_Financeira', 'SYS.Met_Margem' ); ViewRowDimensionSet( sC, sV, 'REC.M.100.Receita_Financeira', 1 );
+ViewSubsetAssign( sC, sV, 'ALL.D.Versao', 'SYS.Cenarios' ); ViewColumnDimensionSet( sC, sV, 'ALL.D.Versao', 1 );
+ViewSubsetAssign( sC, sV, 'ALL.D.Calendario', 'SYS.Sel_Cal_2412' );
+ViewSubsetAssign( sC, sV, 'ALL.D.Safra', 'SYS.Sel_Safra_Tot' );
+ViewSubsetAssign( sC, sV, 'ALL.D.Produto', 'SYS.Sel_Prod_Tot' );
+ViewSubsetAssign( sC, sV, 'ALL.D.Canal', 'SYS.Sel_Canal_Tot' );
+
+#=== Tela 6 - Consolidado ===
+sC = 'CRT.050.Carteira_Consolidada'; sV = 'RPT.Tela6_Consolidado';
+IF( ViewExists( sC, sV ) = 1 ); ViewDestroy( sC, sV ); ENDIF;
+ViewCreate( sC, sV );
+ViewSubsetAssign( sC, sV, 'ALL.D.Origem', 'SYS.Origem' ); ViewRowDimensionSet( sC, sV, 'ALL.D.Origem', 1 );
+ViewSubsetAssign( sC, sV, 'ALL.D.Calendario', 'SYS.Horizonte_Projecao' ); ViewColumnDimensionSet( sC, sV, 'ALL.D.Calendario', 1 );
+ViewSubsetAssign( sC, sV, 'ALL.D.Versao', 'SYS.Sel_Ver_T1' );
+ViewSubsetAssign( sC, sV, 'ALL.D.Safra', 'SYS.Sel_Safra_Tot' );
+ViewSubsetAssign( sC, sV, 'ALL.D.Produto', 'SYS.Sel_Prod_Tot' );
+ViewSubsetAssign( sC, sV, 'ALL.D.Canal', 'SYS.Sel_Canal_Tot' );
+ViewSubsetAssign( sC, sV, 'ALL.D.Prazo', 'SYS.Sel_Prazo_Tot' );
+ViewSubsetAssign( sC, sV, 'CRT.M.050.Carteira_Consolidada', 'SYS.Sel_M050_SF' );
+ViewExtractSkipZeroesSet( sC, sV, 1 );
+#endregion

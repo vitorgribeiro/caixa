@@ -1,0 +1,23 @@
+{
+	"@type":"Cube",
+	"Name":"CRT.010.Premissas_Calendario",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('ALL.D.Calendario')"
+		},
+		{
+			"@id":"Dimensions('ALL.D.Versao')"
+		},
+		{
+			"@id":"Dimensions('ALL.D.Produto')"
+		},
+		{
+			"@id":"Dimensions('CRT.M.010.Premissas_Calendario')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"CRT.010.Premissas_Calendario.views/Tela_04_Novos_View_02_Pivot_Premissas_Taxa_por_Produto.json"
+	]
+}

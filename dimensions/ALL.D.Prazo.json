@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"ALL.D.Prazo",
+	"Hierarchies@Code.links":
+	[
+		"ALL.D.Prazo.hierarchies/ALL.D.Prazo.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('ALL.D.Prazo')/Hierarchies('ALL.D.Prazo')"
+	}
+}

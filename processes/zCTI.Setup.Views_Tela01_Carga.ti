@@ -1,0 +1,26 @@
+#region Prolog
+sCube='CRT.030.Carteira_Existentes';
+sCal='ALL.D.Calendario'; sSaf='ALL.D.Safra'; sVer='ALL.D.Versao';
+sPro='ALL.D.Produto'; sCan='ALL.D.Canal'; sPrz='ALL.D.Prazo';
+sTip='ALL.D.Tipo_Pessoa'; sMea='CRT.M.030.Carteira_Existentes';
+
+v='Tela_01_Carga_View_01_Pivot_Carga_por_Safra';
+ViewCreate(sCube,v);
+ViewSubsetAssign(sCube,v,sSaf,'zTela03_SafraLeaf');
+ViewSubsetAssign(sCube,v,sMea,'zM_CRT030_Carga');
+ViewSubsetAssign(sCube,v,sCal,'zCal_2606');
+ViewSubsetAssign(sCube,v,sVer,'zVer_RE');
+ViewSubsetAssign(sCube,v,sPro,'zTela03_ProdTot');
+ViewSubsetAssign(sCube,v,sCan,'zTela03_CanalTot');
+ViewSubsetAssign(sCube,v,sPrz,'zTela03_PrazoTot');
+ViewSubsetAssign(sCube,v,sTip,'zTela03_TipoTot');
+ViewRowDimensionSet(sCube,v,sSaf,1);
+ViewColumnDimensionSet(sCube,v,sMea,1);
+ViewTitleDimensionSet(sCube,v,sCal);
+ViewTitleDimensionSet(sCube,v,sVer);
+ViewTitleDimensionSet(sCube,v,sPro);
+ViewTitleDimensionSet(sCube,v,sCan);
+ViewTitleDimensionSet(sCube,v,sPrz);
+ViewTitleDimensionSet(sCube,v,sTip);
+ViewExtractSkipZeroesSet(sCube,v,1);
+#endregion

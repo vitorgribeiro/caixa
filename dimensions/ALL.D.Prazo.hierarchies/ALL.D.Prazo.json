@@ -1,0 +1,74 @@
+{
+	"@type":"Hierarchy",
+	"Name":"ALL.D.Prazo",
+	"Elements":
+	[
+		{
+			"Name":"Total Prazo",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"12",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"24",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"36",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"48",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"60",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"72",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total Prazo",
+			"ComponentName":"12",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Prazo",
+			"ComponentName":"24",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Prazo",
+			"ComponentName":"36",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Prazo",
+			"ComponentName":"48",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Prazo",
+			"ComponentName":"60",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Prazo",
+			"ComponentName":"72",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"ALL.D.Prazo.subsets/SYS.Sel_Prazo_Tot.json",
+		"ALL.D.Prazo.subsets/zPrazo_24.json",
+		"ALL.D.Prazo.subsets/zTela03_PrazoTot.json"
+	]
+}

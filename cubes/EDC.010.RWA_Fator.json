@@ -1,0 +1,25 @@
+{
+	"@type":"Cube",
+	"Name":"EDC.010.RWA_Fator",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('ALL.D.Calendario')"
+		},
+		{
+			"@id":"Dimensions('ALL.D.Versao')"
+		},
+		{
+			"@id":"Dimensions('ALL.D.Produto')"
+		},
+		{
+			"@id":"Dimensions('EDC.010.RWA_Fator')"
+		}
+	],
+	"Rules@Code.link":"EDC.010.RWA_Fator.rules",
+	"Views@Code.links":
+	[
+		"EDC.010.RWA_Fator.views/Default.json",
+		"EDC.010.RWA_Fator.views/Fator de Ponderação.json"
+	]
+}

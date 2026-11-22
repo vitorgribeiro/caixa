@@ -1,0 +1,19 @@
+{
+	"@type":"Subset",
+	"Name":"SYS.Met_Funil",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('COM.M.020.Producao')/Hierarchies('COM.M.020.Producao')/Elements('Qtd Contratos')"
+		},
+		{
+			"@id":"Dimensions('COM.M.020.Producao')/Hierarchies('COM.M.020.Producao')/Elements('Ticket Medio')"
+		},
+		{
+			"@id":"Dimensions('COM.M.020.Producao')/Hierarchies('COM.M.020.Producao')/Elements('% Entrada')"
+		},
+		{
+			"@id":"Dimensions('COM.M.020.Producao')/Hierarchies('COM.M.020.Producao')/Elements('Valor Financiado Total')"
+		}
+	]
+}

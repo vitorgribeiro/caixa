@@ -1,0 +1,69 @@
+#region Prolog
+#--- Producao dos Novos: T1 (base) e T2 (+20% volume, cenario agressivo) ------------------------
+# Origina 2024/08..2025/01. Ticket Veiculos 72k (25% entrada), Emprestimo 15k (0%). Split 70/30,
+# canais 50/30/20, mix prazo Veic 24/36 60/40, Emp 12/24 50/50, PF. Existentes (RE) sao iguais nas 2.
+
+sCubo10 = 'COM.010.Mercado';
+sCubo20 = 'COM.020.Producao';
+sTP = 'PF';
+
+vVer = 1;
+WHILE( vVer <= 2 );
+  sVer = IF( vVer = 1, 'T1', 'T2' );
+  nMult = IF( vVer = 1, 1.0, 1.2 );
+
+  sMonths = '2024/08,2024/09,2024/10,2024/11,2024/12,2025/01';
+  sVols   = '5423,5912,5975,6180,6122,6206';
+
+  vI = 1;
+  WHILE( vI <= 6 );
+    vScanM = SCAN( ',', sMonths );
+    IF( vScanM = 0 ); sMon = sMonths; ELSE; sMon = SUBST( sMonths, 1, vScanM - 1 ); ENDIF;
+    vScanV = SCAN( ',', sVols );
+    IF( vScanV = 0 ); sVol = sVols; ELSE; sVol = SUBST( sVols, 1, vScanV - 1 ); ENDIF;
+    nVol = NUMBR( sVol ) * nMult;
+
+    sCanais = 'Rede,Loja,Digital';
+    vC = 1;
+    WHILE( vC <= 3 );
+      vScanC = SCAN( ',', sCanais );
+      IF( vScanC = 0 ); sCanal = sCanais; ELSE; sCanal = SUBST( sCanais, 1, vScanC - 1 ); ENDIF;
+      nCanalW = IF( sCanal @= 'Rede', 0.5, IF( sCanal @= 'Loja', 0.3, 0.2 ) );
+
+      nQtdV = nVol * 0.7 * nCanalW;
+      nQtdE = nVol * 0.3 * nCanalW;
+
+      CellPutN( nQtdV, sCubo10, sMon, sVer, 'Veiculos', sCanal, 'Qtd Contratos' );
+      CellPutN( nQtdV / 0.1944, sCubo10, sMon, sVer, 'Veiculos', sCanal, 'Mercado Ano Anterior' );
+      CellPutN( 0.08, sCubo10, sMon, sVer, 'Veiculos', sCanal, '% Crescimento Mercado' );
+      CellPutN( 0.18, sCubo10, sMon, sVer, 'Veiculos', sCanal, '% Penetracao' );
+      CellPutN( nQtdE, sCubo10, sMon, sVer, 'Emprestimo Pessoal', sCanal, 'Qtd Contratos' );
+      CellPutN( nQtdE / 0.1944, sCubo10, sMon, sVer, 'Emprestimo Pessoal', sCanal, 'Mercado Ano Anterior' );
+      CellPutN( 0.08, sCubo10, sMon, sVer, 'Emprestimo Pessoal', sCanal, '% Crescimento Mercado' );
+      CellPutN( 0.18, sCubo10, sMon, sVer, 'Emprestimo Pessoal', sCanal, '% Penetracao' );
+
+      CellPutN( 0.6, sCubo20, sMon, sVer, 'Veiculos', sCanal, '24', sTP, '% Mix Prazo' );
+      CellPutN( 72000, sCubo20, sMon, sVer, 'Veiculos', sCanal, '24', sTP, 'Ticket Medio' );
+      CellPutN( 0.25, sCubo20, sMon, sVer, 'Veiculos', sCanal, '24', sTP, '% Entrada' );
+      CellPutN( 0.4, sCubo20, sMon, sVer, 'Veiculos', sCanal, '36', sTP, '% Mix Prazo' );
+      CellPutN( 72000, sCubo20, sMon, sVer, 'Veiculos', sCanal, '36', sTP, 'Ticket Medio' );
+      CellPutN( 0.25, sCubo20, sMon, sVer, 'Veiculos', sCanal, '36', sTP, '% Entrada' );
+      CellPutN( 0.5, sCubo20, sMon, sVer, 'Emprestimo Pessoal', sCanal, '12', sTP, '% Mix Prazo' );
+      CellPutN( 15000, sCubo20, sMon, sVer, 'Emprestimo Pessoal', sCanal, '12', sTP, 'Ticket Medio' );
+      CellPutN( 0, sCubo20, sMon, sVer, 'Emprestimo Pessoal', sCanal, '12', sTP, '% Entrada' );
+      CellPutN( 0.5, sCubo20, sMon, sVer, 'Emprestimo Pessoal', sCanal, '24', sTP, '% Mix Prazo' );
+      CellPutN( 15000, sCubo20, sMon, sVer, 'Emprestimo Pessoal', sCanal, '24', sTP, 'Ticket Medio' );
+      CellPutN( 0, sCubo20, sMon, sVer, 'Emprestimo Pessoal', sCanal, '24', sTP, '% Entrada' );
+
+      IF( vScanC > 0 ); sCanais = DELET( sCanais, 1, vScanC ); ENDIF;
+      vC = vC + 1;
+    END;
+
+    IF( vScanM > 0 ); sMonths = DELET( sMonths, 1, vScanM ); ENDIF;
+    IF( vScanV > 0 ); sVols = DELET( sVols, 1, vScanV ); ENDIF;
+    vI = vI + 1;
+  END;
+
+  vVer = vVer + 1;
+END;
+#endregion

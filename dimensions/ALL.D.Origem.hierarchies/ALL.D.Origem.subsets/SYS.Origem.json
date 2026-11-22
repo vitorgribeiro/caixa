@@ -1,0 +1,16 @@
+{
+	"@type":"Subset",
+	"Name":"SYS.Origem",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('ALL.D.Origem')/Hierarchies('ALL.D.Origem')/Elements('Total Carteira')"
+		},
+		{
+			"@id":"Dimensions('ALL.D.Origem')/Hierarchies('ALL.D.Origem')/Elements('Novos')"
+		},
+		{
+			"@id":"Dimensions('ALL.D.Origem')/Hierarchies('ALL.D.Origem')/Elements('Existentes')"
+		}
+	]
+}

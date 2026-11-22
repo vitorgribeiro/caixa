@@ -1,0 +1,71 @@
+{
+	"@type":"Hierarchy",
+	"Name":"CRT.M.040.Carteira_Novos",
+	"Elements":
+	[
+		{
+			"Name":"Volume",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Valor Financiado",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Saldo Inicial",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"(+) Juros",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"(-) Amortizacao",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"(-) LA Full",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"(-) LA Parcial",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"(-) WO",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Saldo Final",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SYS.MOB",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"(-) LA Total",
+			"Type":"Consolidated"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"(-) LA Total",
+			"ComponentName":"(-) LA Full",
+			"Weight":1
+		},
+		{
+			"ParentName":"(-) LA Total",
+			"ComponentName":"(-) LA Parcial",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"CRT.M.040.Carteira_Novos.subsets/Saldos.json",
+		"CRT.M.040.Carteira_Novos.subsets/SYS.Sel_M040_SF.json",
+		"CRT.M.040.Carteira_Novos.subsets/zM_CRT040_Juros.json",
+		"CRT.M.040.Carteira_Novos.subsets/zM_CRT040_Motor.json"
+	]
+}

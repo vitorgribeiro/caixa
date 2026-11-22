@@ -1,0 +1,7 @@
+#region Prolog
+d='CRT.M.030.Carteira_Existentes';
+AttrPutS('#,##0.00',d,'Saldo Carga','Format');
+AttrPutS('#,##0',d,'Parcelas Remanescentes','Format');
+AttrPutS('0.00"%"',d,'% Taxa Media Carga','Format');
+AttrPutS('#,##0.00',d,'(-) LA Total','Format');
+#endregion

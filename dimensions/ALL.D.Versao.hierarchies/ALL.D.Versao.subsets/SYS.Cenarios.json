@@ -1,0 +1,16 @@
+{
+	"@type":"Subset",
+	"Name":"SYS.Cenarios",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('ALL.D.Versao')/Hierarchies('ALL.D.Versao')/Elements('RE')"
+		},
+		{
+			"@id":"Dimensions('ALL.D.Versao')/Hierarchies('ALL.D.Versao')/Elements('T1')"
+		},
+		{
+			"@id":"Dimensions('ALL.D.Versao')/Hierarchies('ALL.D.Versao')/Elements('T2')"
+		}
+	]
+}

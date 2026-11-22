@@ -1,0 +1,19 @@
+{
+	"@type":"Hierarchy",
+	"Name":"CRT.M.010.Premissas_Calendario",
+	"Elements":
+	[
+		{
+			"Name":"% Taxa Cliente",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"% Custo Funding",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"CRT.M.010.Premissas_Calendario.subsets/zM_CRT010.json"
+	]
+}

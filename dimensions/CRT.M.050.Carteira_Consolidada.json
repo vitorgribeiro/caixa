@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"CRT.M.050.Carteira_Consolidada",
+	"Hierarchies@Code.links":
+	[
+		"CRT.M.050.Carteira_Consolidada.hierarchies/CRT.M.050.Carteira_Consolidada.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('CRT.M.050.Carteira_Consolidada')/Hierarchies('CRT.M.050.Carteira_Consolidada')"
+	}
+}

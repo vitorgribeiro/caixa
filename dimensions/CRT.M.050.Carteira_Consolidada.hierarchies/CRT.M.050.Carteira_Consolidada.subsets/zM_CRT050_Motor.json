@@ -1,0 +1,25 @@
+{
+	"@type":"Subset",
+	"Name":"zM_CRT050_Motor",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('CRT.M.050.Carteira_Consolidada')/Hierarchies('CRT.M.050.Carteira_Consolidada')/Elements('Saldo Inicial')"
+		},
+		{
+			"@id":"Dimensions('CRT.M.050.Carteira_Consolidada')/Hierarchies('CRT.M.050.Carteira_Consolidada')/Elements('(+) Juros')"
+		},
+		{
+			"@id":"Dimensions('CRT.M.050.Carteira_Consolidada')/Hierarchies('CRT.M.050.Carteira_Consolidada')/Elements('(-) Amortizacao')"
+		},
+		{
+			"@id":"Dimensions('CRT.M.050.Carteira_Consolidada')/Hierarchies('CRT.M.050.Carteira_Consolidada')/Elements('(-) LA Total')"
+		},
+		{
+			"@id":"Dimensions('CRT.M.050.Carteira_Consolidada')/Hierarchies('CRT.M.050.Carteira_Consolidada')/Elements('(-) WO')"
+		},
+		{
+			"@id":"Dimensions('CRT.M.050.Carteira_Consolidada')/Hierarchies('CRT.M.050.Carteira_Consolidada')/Elements('Saldo Final')"
+		}
+	]
+}

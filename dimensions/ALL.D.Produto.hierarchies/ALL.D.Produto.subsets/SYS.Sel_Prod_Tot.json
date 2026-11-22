@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"SYS.Sel_Prod_Tot",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('ALL.D.Produto')/Hierarchies('ALL.D.Produto')/Elements('Total Produto')"
+		}
+	]
+}

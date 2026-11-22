@@ -1,0 +1,25 @@
+{
+	"@type":"MDXView",
+	"Name":"Default",
+	"MDX@Code.link":"Default.mdx",
+	"IsAutocalculate" : true,
+	"IsDeferComputeOnLeafDataEntry" : false,
+	"IsSuppressComputeOnOpen" : false,
+	"Meta" : 
+	{
+		"Aliases" : {},
+		"ContextSets" : 
+		{
+			"[ALL.D.Calendario].[ALL.D.Calendario]" : 
+			{
+				"Expression" : "{[ALL.D.Calendario].[ALL.D.Calendario].[2027/01]}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[ALL.D.Calendario].[ALL.D.Calendario]" : false,
+			"[ALL.D.Versao].[ALL.D.Versao]" : false,
+			"[EDC.100.Estudo_Capital].[EDC.100.Estudo_Capital]" : false
+		}
+	}
+}

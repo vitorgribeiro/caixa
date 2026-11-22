@@ -1,0 +1,73 @@
+#region Prolog
+
+### Copia premissas de calendario +23 meses, mesma versao (T1->T1, T2->T2)
+sAtCal='}ElementAttributes_ALL.D.Calendario';
+pp=1;
+WHILE(pp<=2);
+  IF(pp=1); sV='T1'; ELSE; sV='T2'; ENDIF;
+  cx=1;
+  WHILE(cx<=DIMSIZ('ALL.D.Calendario'));
+    sCal=DIMNM('ALL.D.Calendario',cx);
+    IF(ELLEV('ALL.D.Calendario',sCal)=0 & sCal @>='2024/08' & sCal @<='2025/01');
+      sTC=sCal; z=0; WHILE(z<23); sTC=CellGetS(sAtCal,sTC,'Next Period'); z=z+1; END;
+      p=1;
+      WHILE(p<=DIMSIZ('ALL.D.Produto'));
+        sPro=DIMNM('ALL.D.Produto',p);
+        IF(ELLEV('ALL.D.Produto',sPro)=0);
+          ### CRT.010 [Calendario,Versao,Produto,Measure]
+          mm=1;
+          WHILE(mm<=DIMSIZ('CRT.M.010.Premissas_Calendario'));
+            sM=DIMNM('CRT.M.010.Premissas_Calendario',mm);
+            IF(ELLEV('CRT.M.010.Premissas_Calendario',sM)=0);
+              nV=CellGetN('CRT.010.Premissas_Calendario',sCal,sV,sPro,sM);
+              IF(nV<>0); CellPutN(nV,'CRT.010.Premissas_Calendario',sTC,sV,sPro,sM); ENDIF;
+            ENDIF;
+            mm=mm+1;
+          END;
+          c=1;
+          WHILE(c<=DIMSIZ('ALL.D.Canal'));
+            sCan=DIMNM('ALL.D.Canal',c);
+            IF(ELLEV('ALL.D.Canal',sCan)=0);
+              ### COM.010 [Calendario,Versao,Produto,Canal,Measure]
+              mm=1;
+              WHILE(mm<=DIMSIZ('COM.M.010.Mercado'));
+                sM=DIMNM('COM.M.010.Mercado',mm);
+                IF(ELLEV('COM.M.010.Mercado',sM)=0);
+                  nV=CellGetN('COM.010.Mercado',sCal,sV,sPro,sCan,sM);
+                  IF(nV<>0); CellPutN(nV,'COM.010.Mercado',sTC,sV,sPro,sCan,sM); ENDIF;
+                ENDIF;
+                mm=mm+1;
+              END;
+              ### COM.020 inputs [Calendario,Versao,Produto,Canal,Prazo,Tipo,Measure]
+              z2=1;
+              WHILE(z2<=DIMSIZ('ALL.D.Prazo'));
+                sPz=DIMNM('ALL.D.Prazo',z2);
+                IF(ELLEV('ALL.D.Prazo',sPz)=0);
+                  t=1;
+                  WHILE(t<=DIMSIZ('ALL.D.Tipo_Pessoa'));
+                    sTp=DIMNM('ALL.D.Tipo_Pessoa',t);
+                    IF(ELLEV('ALL.D.Tipo_Pessoa',sTp)=0);
+                      nV=CellGetN('COM.020.Producao',sCal,sV,sPro,sCan,sPz,sTp,'Ticket Medio');
+                      IF(nV<>0); CellPutN(nV,'COM.020.Producao',sTC,sV,sPro,sCan,sPz,sTp,'Ticket Medio'); ENDIF;
+                      nV=CellGetN('COM.020.Producao',sCal,sV,sPro,sCan,sPz,sTp,'% Entrada');
+                      IF(nV<>0); CellPutN(nV,'COM.020.Producao',sTC,sV,sPro,sCan,sPz,sTp,'% Entrada'); ENDIF;
+                      nV=CellGetN('COM.020.Producao',sCal,sV,sPro,sCan,sPz,sTp,'% Mix Prazo');
+                      IF(nV<>0); CellPutN(nV,'COM.020.Producao',sTC,sV,sPro,sCan,sPz,sTp,'% Mix Prazo'); ENDIF;
+                    ENDIF;
+                    t=t+1;
+                  END;
+                ENDIF;
+                z2=z2+1;
+              END;
+            ENDIF;
+            c=c+1;
+          END;
+        ENDIF;
+        p=p+1;
+      END;
+    ENDIF;
+    cx=cx+1;
+  END;
+  pp=pp+1;
+END;
+#endregion

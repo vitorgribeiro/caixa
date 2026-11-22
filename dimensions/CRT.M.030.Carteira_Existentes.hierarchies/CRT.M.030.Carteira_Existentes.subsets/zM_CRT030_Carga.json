@@ -1,0 +1,16 @@
+{
+	"@type":"Subset",
+	"Name":"zM_CRT030_Carga",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('CRT.M.030.Carteira_Existentes')/Hierarchies('CRT.M.030.Carteira_Existentes')/Elements('Saldo Carga')"
+		},
+		{
+			"@id":"Dimensions('CRT.M.030.Carteira_Existentes')/Hierarchies('CRT.M.030.Carteira_Existentes')/Elements('% Taxa Media Carga')"
+		},
+		{
+			"@id":"Dimensions('CRT.M.030.Carteira_Existentes')/Hierarchies('CRT.M.030.Carteira_Existentes')/Elements('Parcelas Remanescentes')"
+		}
+	]
+}

@@ -1,0 +1,12 @@
+{
+	"@type":"Process",
+	"Name":"SYS.000.UPD_Dimensoes_01_Metricas",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"SYS.000.UPD_Dimensoes_01_Metricas.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}

@@ -1,0 +1,22 @@
+{
+	"@type":"Cube",
+	"Name":"EDC.050.RWA_Consolidado",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('ALL.D.Calendario')"
+		},
+		{
+			"@id":"Dimensions('ALL.D.Versao')"
+		},
+		{
+			"@id":"Dimensions('EDC.050.RWA_Consolidado')"
+		}
+	],
+	"Rules@Code.link":"EDC.050.RWA_Consolidado.rules",
+	"Views@Code.links":
+	[
+		"EDC.050.RWA_Consolidado.views/BIA + Indicador de Mercado.json",
+		"EDC.050.RWA_Consolidado.views/Default.json"
+	]
+}

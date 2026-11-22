@@ -1,0 +1,105 @@
+SKIPCHECK;
+
+['ALL.D.Versao':'RE'] = N: STET;
+
+[] = N:
+  IF( ELISANC( 'ALL.D.Versao', 'Versoes Dinamicas', !ALL.D.Versao ) <> 0
+    , CONTINUE
+    , STET
+    );
+
+[] = N:
+  IF( DB( 'PRE.001.Premissas_Gerais', !ALL.D.Calendario, !ALL.D.Versao, 'Real x Orcado' ) @= 'Real'
+    , ['ALL.D.Versao':'RE']
+    , CONTINUE
+    );
+
+['REC.M.100.Receita_Financeira':'Saldo Medio'] = N:
+  ( DB( 'CRT.050.Carteira_Consolidada', !ALL.D.Calendario, !ALL.D.Safra, !ALL.D.Versao, 'Total Carteira', !ALL.D.Produto, !ALL.D.Canal, 'Total Prazo', 'Saldo Inicial' )
+  + DB( 'CRT.050.Carteira_Consolidada', !ALL.D.Calendario, !ALL.D.Safra, !ALL.D.Versao, 'Total Carteira', !ALL.D.Produto, !ALL.D.Canal, 'Total Prazo', 'Saldo Final' )
+  ) \ 2;
+
+['REC.M.100.Receita_Financeira':'(+) Juros Carteira'] = N:
+  DB( 'CRT.050.Carteira_Consolidada', !ALL.D.Calendario, !ALL.D.Safra, !ALL.D.Versao, 'Total Carteira', !ALL.D.Produto, !ALL.D.Canal, 'Total Prazo', '(+) Juros' );
+
+
+# INICIO DE REGRA TEMPORÁRIA PARA EVENTO DE BANCOS 28/07/2026 (DEMO DE CAPITAL) - APAGAR DEPOIS
+
+['REC.M.100.Receita_Financeira':'(+) Juros Carteira'
+ , 'ALL.D.Calendario':'ALL.D.Calendario':'2026'] = C:
+  
+  (  ['ALL.D.Calendario':'ALL.D.Calendario':'2026/01']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2026/02']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2026/03']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2026/04']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2026/05']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2026/06']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2026/07']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2026/08']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2026/09']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2026/10']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2026/11']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2026/12'])/12;
+
+['REC.M.100.Receita_Financeira':'(+) Juros Carteira'
+ , 'ALL.D.Calendario':'ALL.D.Calendario':'2027'] = C:
+  
+  (  ['ALL.D.Calendario':'ALL.D.Calendario':'2027/01']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2027/02']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2027/03']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2027/04']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2027/05']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2027/06']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2027/07']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2027/08']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2027/09']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2027/10']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2027/11']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2027/12'])/12;
+
+['REC.M.100.Receita_Financeira':'(+) Juros Carteira'
+ , 'ALL.D.Calendario':'ALL.D.Calendario':'2028'] = C:
+  
+  (  ['ALL.D.Calendario':'ALL.D.Calendario':'2028/01']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2028/02']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2028/03']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2028/04']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2028/05']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2028/06']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2028/07']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2028/08']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2028/09']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2028/10']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2028/11']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2028/12'])/12;
+
+['REC.M.100.Receita_Financeira':'(+) Juros Carteira'
+ , 'ALL.D.Calendario':'ALL.D.Calendario':'2029'] = C:
+  
+  (  ['ALL.D.Calendario':'ALL.D.Calendario':'2029/01']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2029/02']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2029/03']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2029/04']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2029/05']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2029/06']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2029/07']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2029/08']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2029/09']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2029/10']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2029/11']
+   + ['ALL.D.Calendario':'ALL.D.Calendario':'2029/12'])/12;
+
+# TERMINO DE REGRA TEMPORÁRIA PARA EVENTO DE BANCOS 28/07/2026 (DEMO DE CAPITAL) - APAGAR DEPOIS
+
+
+['REC.M.100.Receita_Financeira':'(-) Custo Funding'] = N:
+  - ( DB( 'CRT.010.Premissas_Calendario', !ALL.D.Calendario, !ALL.D.Versao, !ALL.D.Produto, '% Custo Funding' )
+      * ['REC.M.100.Receita_Financeira':'Saldo Medio']
+    );
+
+
+FEEDERS;
+
+['ALL.D.Versao':'Versoes Dinamicas','REC.M.100.Receita_Financeira':'Saldo Medio'] =>
+    ['REC.M.100.Receita_Financeira':'(-) Custo Funding']
+  , ['REC.M.100.Receita_Financeira':'(+) Juros Carteira'];

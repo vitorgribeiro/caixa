@@ -1,0 +1,34 @@
+{
+	"@type":"Subset",
+	"Name":"zM_CRT040_Motor",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('CRT.M.040.Carteira_Novos')/Hierarchies('CRT.M.040.Carteira_Novos')/Elements('Volume')"
+		},
+		{
+			"@id":"Dimensions('CRT.M.040.Carteira_Novos')/Hierarchies('CRT.M.040.Carteira_Novos')/Elements('Valor Financiado')"
+		},
+		{
+			"@id":"Dimensions('CRT.M.040.Carteira_Novos')/Hierarchies('CRT.M.040.Carteira_Novos')/Elements('Saldo Inicial')"
+		},
+		{
+			"@id":"Dimensions('CRT.M.040.Carteira_Novos')/Hierarchies('CRT.M.040.Carteira_Novos')/Elements('(+) Juros')"
+		},
+		{
+			"@id":"Dimensions('CRT.M.040.Carteira_Novos')/Hierarchies('CRT.M.040.Carteira_Novos')/Elements('(-) Amortizacao')"
+		},
+		{
+			"@id":"Dimensions('CRT.M.040.Carteira_Novos')/Hierarchies('CRT.M.040.Carteira_Novos')/Elements('(-) LA Full')"
+		},
+		{
+			"@id":"Dimensions('CRT.M.040.Carteira_Novos')/Hierarchies('CRT.M.040.Carteira_Novos')/Elements('(-) LA Parcial')"
+		},
+		{
+			"@id":"Dimensions('CRT.M.040.Carteira_Novos')/Hierarchies('CRT.M.040.Carteira_Novos')/Elements('(-) WO')"
+		},
+		{
+			"@id":"Dimensions('CRT.M.040.Carteira_Novos')/Hierarchies('CRT.M.040.Carteira_Novos')/Elements('Saldo Final')"
+		}
+	]
+}

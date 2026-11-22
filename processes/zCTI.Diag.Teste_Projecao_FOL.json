@@ -1,0 +1,12 @@
+{
+	"@type":"Process",
+	"Name":"zCTI.Diag.Teste_Projecao_FOL",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"zCTI.Diag.Teste_Projecao_FOL.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}

@@ -1,0 +1,32 @@
+{
+	"@type":"Cube",
+	"Name":"REC.100.Receita_Financeira",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('ALL.D.Calendario')"
+		},
+		{
+			"@id":"Dimensions('ALL.D.Safra')"
+		},
+		{
+			"@id":"Dimensions('ALL.D.Versao')"
+		},
+		{
+			"@id":"Dimensions('ALL.D.Produto')"
+		},
+		{
+			"@id":"Dimensions('ALL.D.Canal')"
+		},
+		{
+			"@id":"Dimensions('REC.M.100.Receita_Financeira')"
+		}
+	],
+	"Rules@Code.link":"REC.100.Receita_Financeira.rules",
+	"Views@Code.links":
+	[
+		"REC.100.Receita_Financeira.views/RPT.Tela5_Margem_Cenarios.json",
+		"REC.100.Receita_Financeira.views/Tela_05_Cenarios_View_01_Pivot_Comparativo_Versoes.json",
+		"REC.100.Receita_Financeira.views/Tela_05_Cenarios_View_02_Grafico_Coluna_Juros_por_Cenario.json"
+	]
+}

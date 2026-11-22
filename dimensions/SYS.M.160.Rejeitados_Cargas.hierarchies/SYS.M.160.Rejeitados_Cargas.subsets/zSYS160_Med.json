@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"zSYS160_Med",
+	"Expression":"{TM1SUBSETALL( [SYS.M.160.Rejeitados_Cargas] )}"
+}
