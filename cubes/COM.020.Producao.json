@@ -19,5 +19,6 @@
 			"@id":"Dimensions('COM.M.020.Producao')"
 		}
 	],
+	"Rules@Code.link":"COM.020.Producao.rules",
 	"Views@Code.links":[]
 }

@@ -22,5 +22,6 @@
 			"@id":"Dimensions('CRT.M.040.Carteira_Novos')"
 		}
 	],
+	"Rules@Code.link":"CRT.040.Carteira_Novos.rules",
 	"Views@Code.links":[]
 }

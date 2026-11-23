@@ -46,6 +46,10 @@
 		{
 			"Name":"(-) LA Total",
 			"Type":"Consolidated"
+		},
+		{
+			"Name":"Parcelas Remanecentes",
+			"Type":"Numeric"
 		}
 	],
 	"Edges":

@@ -22,5 +22,6 @@
 			"@id":"Dimensions('CRT.M.030.Carteira_Existentes')"
 		}
 	],
+	"Rules@Code.link":"CRT.030.Carteira_Existentes.rules",
 	"Views@Code.links":[]
 }

@@ -8,58 +8,6 @@
 			"Type":"Consolidated"
 		},
 		{
-			"Name":"2024",
-			"Type":"Consolidated"
-		},
-		{
-			"Name":"2024/01",
-			"Type":"Numeric"
-		},
-		{
-			"Name":"2024/02",
-			"Type":"Numeric"
-		},
-		{
-			"Name":"2024/03",
-			"Type":"Numeric"
-		},
-		{
-			"Name":"2024/04",
-			"Type":"Numeric"
-		},
-		{
-			"Name":"2024/05",
-			"Type":"Numeric"
-		},
-		{
-			"Name":"2024/06",
-			"Type":"Numeric"
-		},
-		{
-			"Name":"2024/07",
-			"Type":"Numeric"
-		},
-		{
-			"Name":"2024/08",
-			"Type":"Numeric"
-		},
-		{
-			"Name":"2024/09",
-			"Type":"Numeric"
-		},
-		{
-			"Name":"2024/10",
-			"Type":"Numeric"
-		},
-		{
-			"Name":"2024/11",
-			"Type":"Numeric"
-		},
-		{
-			"Name":"2024/12",
-			"Type":"Numeric"
-		},
-		{
 			"Name":"2025",
 			"Type":"Consolidated"
 		},
@@ -372,8 +320,68 @@
 			"Type":"Numeric"
 		},
 		{
+			"Name":"2024",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"2024/01",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024/02",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024/03",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024/04",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024/05",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024/06",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024/07",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024/08",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024/09",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024/10",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024/11",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2024/12",
+			"Type":"Numeric"
+		},
+		{
 			"Name":"2023",
 			"Type":"Consolidated"
+		},
+		{
+			"Name":"2023/01",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2023/02",
+			"Type":"Numeric"
 		},
 		{
 			"Name":"2023/03",
@@ -420,6 +428,11 @@
 	[
 		{
 			"ParentName":"Total Safra",
+			"ComponentName":"2023",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Safra",
 			"ComponentName":"2024",
 			"Weight":1
 		},
@@ -451,71 +464,6 @@
 		{
 			"ParentName":"Total Safra",
 			"ComponentName":"2030",
-			"Weight":1
-		},
-		{
-			"ParentName":"Total Safra",
-			"ComponentName":"2023",
-			"Weight":1
-		},
-		{
-			"ParentName":"2024",
-			"ComponentName":"2024/01",
-			"Weight":1
-		},
-		{
-			"ParentName":"2024",
-			"ComponentName":"2024/02",
-			"Weight":1
-		},
-		{
-			"ParentName":"2024",
-			"ComponentName":"2024/03",
-			"Weight":1
-		},
-		{
-			"ParentName":"2024",
-			"ComponentName":"2024/04",
-			"Weight":1
-		},
-		{
-			"ParentName":"2024",
-			"ComponentName":"2024/05",
-			"Weight":1
-		},
-		{
-			"ParentName":"2024",
-			"ComponentName":"2024/06",
-			"Weight":1
-		},
-		{
-			"ParentName":"2024",
-			"ComponentName":"2024/07",
-			"Weight":1
-		},
-		{
-			"ParentName":"2024",
-			"ComponentName":"2024/08",
-			"Weight":1
-		},
-		{
-			"ParentName":"2024",
-			"ComponentName":"2024/09",
-			"Weight":1
-		},
-		{
-			"ParentName":"2024",
-			"ComponentName":"2024/10",
-			"Weight":1
-		},
-		{
-			"ParentName":"2024",
-			"ComponentName":"2024/11",
-			"Weight":1
-		},
-		{
-			"ParentName":"2024",
-			"ComponentName":"2024/12",
 			"Weight":1
 		},
 		{
@@ -876,6 +824,76 @@
 		{
 			"ParentName":"2030",
 			"ComponentName":"2030/12",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024",
+			"ComponentName":"2024/01",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024",
+			"ComponentName":"2024/02",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024",
+			"ComponentName":"2024/03",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024",
+			"ComponentName":"2024/04",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024",
+			"ComponentName":"2024/05",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024",
+			"ComponentName":"2024/06",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024",
+			"ComponentName":"2024/07",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024",
+			"ComponentName":"2024/08",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024",
+			"ComponentName":"2024/09",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024",
+			"ComponentName":"2024/10",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024",
+			"ComponentName":"2024/11",
+			"Weight":1
+		},
+		{
+			"ParentName":"2024",
+			"ComponentName":"2024/12",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023",
+			"ComponentName":"2023/01",
+			"Weight":1
+		},
+		{
+			"ParentName":"2023",
+			"ComponentName":"2023/02",
 			"Weight":1
 		},
 		{

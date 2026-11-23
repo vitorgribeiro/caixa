@@ -1,10 +1,5 @@
 {
 	"@type":"Subset",
 	"Name":"SYS.Sel_Cal_2407",
-	"Elements":
-	[
-		{
-			"@id":"Dimensions('ALL.D.Calendario')/Hierarchies('ALL.D.Calendario')/Elements('2024/07')"
-		}
-	]
+	"Elements":[]
 }

@@ -4,7 +4,7 @@
 	"Dimensions":
 	[
 		{
-			"@id":"Dimensions('ALL.D.Safra')"
+			"@id":"Dimensions('ALL.D.Calendario')"
 		},
 		{
 			"@id":"Dimensions('ALL.D.Versao')"
@@ -13,17 +13,8 @@
 			"@id":"Dimensions('ALL.D.Produto')"
 		},
 		{
-			"@id":"Dimensions('ALL.D.Prazo')"
-		},
-		{
-			"@id":"Dimensions('CRT.D.MOB')"
-		},
-		{
 			"@id":"Dimensions('CRT.M.015.Premissas_Safra')"
 		}
 	],
-	"Views@Code.links":
-	[
-		"CRT.015.Premissas_Safra.views/Tela_04_Novos_View_03_Pivot_Premissas_Curvas_por_MOB.json"
-	]
+	"Views@Code.links":[]
 }

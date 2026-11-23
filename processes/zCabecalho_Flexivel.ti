@@ -1,0 +1,46 @@
+#region Prolog
+
+vlinha = 0;
+vCol_Dado = '';
+vCol_teste = '';
+vVariaveis = 23;
+#endregion
+#region Data
+
+vlinha = vlinha + 1;
+if(vlinha = 1);
+    vlinha = 1;
+    while(vlinha<=vVariaveis & vCol_Dado@='');
+        vCol_Dado = if(
+                                  Trim(Expand('%v'|NumberToString(vlinha)|'%'))@='dado'
+                                  ,'v'|NumberToString( vlinha )
+                                  ,vCol_Dado);
+        vlinha = vlinha + 1;
+    end;   
+    if(vCol_Dado@='');
+        LogOutput( 'ERROR', 'Coluna Dado não existe no arquivo' );
+        ProcessError();
+    endif;
+    LogOutput( 'INFO', 'Coluna Dado na variavel ' | vCol_Dado );
+
+    
+    vlinha = 1;
+    while(vlinha<=vVariaveis & vCol_teste@='');
+        vCol_teste = if(
+                                  Trim(Expand('%v'|NumberToString(vlinha)|'%'))@='teste'
+                                  ,'v'|NumberToString( vlinha )
+                                  ,vCol_teste);
+        vlinha = vlinha + 1;
+    end;   
+    if(vCol_teste@='');
+        LogOutput( 'ERROR', 'Coluna Dado não existe no arquivo' );
+        ProcessError();
+    endif;
+    LogOutput( 'INFO', 'Coluna teste na variavel ' | vCol_teste );
+endif;
+
+vDado = Expand('%'|Expand('%vCol_Dado%')|'%');
+vTeste = Expand('%'|Expand('%vCol_teste%')|'%');
+LogOutput( 'INFO', vDado | ' - ' | vTeste );
+
+#endregion

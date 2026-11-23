@@ -1,0 +1,127 @@
+SKIPCHECK;
+
+#Region Regras Realizado
+
+# ============================================================
+# RGR-01 | Valor Financiado Real por Safra | Def -
+# Produção realizada da safra = saldo do CRT.030 no próprio mês da safra (Calendario = Safra),
+# quando nenhuma parcela foi paga ainda. Só RE; safra sem mês no Calendario fica zerada.
+# data: 2026-11 | autor: vribeiro | ticket: -
+# ============================================================
+['ALL.D.Versao':'RE', 'COM.M.020.Producao':'Valor Financiado Total'] = N:
+  IF( DIMIX( 'ALL.D.Calendario', !ALL.D.Safra ) = 0
+    , 0
+    , DB( 'CRT.030.Carteira_Existentes'
+        , !ALL.D.Safra
+        , !ALL.D.Safra
+        , 'RE'
+        , !ALL.D.Produto
+        , !ALL.D.Segmento
+        , 'Saldo Carga' )
+  );
+
+# ============================================================
+# RGR-01 | Valor Financiado Real por Safra | Def -
+# Produção realizada da safra = saldo do CRT.030 no próprio mês da safra (Calendario = Safra),
+# quando nenhuma parcela foi paga ainda. Só RE; safra sem mês no Calendario fica zerada.
+# data: 2026-11 | autor: vribeiro | ticket: -
+# ============================================================
+['ALL.D.Versao':'RE', 'COM.M.020.Producao':'Qtd Contratos'] = N:
+  IF( DIMIX( 'ALL.D.Calendario', !ALL.D.Safra ) = 0
+    , 0
+    , DB( 'CRT.030.Carteira_Existentes'
+        , !ALL.D.Safra
+        , !ALL.D.Safra
+        , 'RE'
+        , !ALL.D.Produto
+        , !ALL.D.Segmento
+        , 'Volume' )
+  );
+
+# ============================================================
+# RGR-02 | Taxa e Prazo Médio Reais por Safra | Def -
+# Taxa e prazo original da safra lidos do CRT.030 no mês da safra
+# (Parcelas Remanescentes na originação = prazo contratado). Só célula folha:
+# nos totais estas medidas somam até existir média ponderada (pendência).
+# data: 2026-11 | autor: vribeiro | ticket: -
+# ============================================================
+['ALL.D.Versao':'RE', 'COM.M.020.Producao':'% Taxa'] = N:
+  IF( DIMIX( 'ALL.D.Calendario', !ALL.D.Safra ) = 0
+    , 0
+    , DB( 'CRT.030.Carteira_Existentes'
+        , !ALL.D.Safra
+        , !ALL.D.Safra
+        , 'RE'
+        , !ALL.D.Produto
+        , !ALL.D.Segmento
+        , '% Taxa' )
+  );
+
+['ALL.D.Versao':'RE', 'COM.M.020.Producao':'Prazo Médio'] = N:
+  IF( DIMIX( 'ALL.D.Calendario', !ALL.D.Safra ) = 0
+    , 0
+    , DB( 'CRT.030.Carteira_Existentes'
+        , !ALL.D.Safra
+        , !ALL.D.Safra
+        , 'RE'
+        , !ALL.D.Produto
+        , !ALL.D.Segmento
+        , 'Parcelas Remanescentes' )
+  );
+
+
+['COM.M.020.Producao':'Ticket Medio','ALL.D.Versao':'RE'] = N:
+  ['COM.M.020.Producao':'Valor Financiado Total'] \ ['COM.M.020.Producao':'Qtd Contratos'];
+
+#EndRegion
+
+
+[] = N:
+  IF( ELISANC( 'ALL.D.Versao', 'Versoes Dinamicas', !ALL.D.Versao ) <> 0
+    , CONTINUE
+    , STET
+    );
+
+
+[] = N:
+  IF(DB('PRE.001.Premissas_Gerais', !ALL.D.Safra, !ALL.D.Versao, 'Real x Orcado' )@='Real',['RE'],CONTINUE);
+
+['COM.M.020.Producao':'Qtd Contratos'] = N: STET;
+
+['COM.M.020.Producao':'Valor Financiado Total'] = N:
+    ['COM.M.020.Producao':'Qtd Contratos']
+  * ['COM.M.020.Producao':'Ticket Medio'];
+
+#['COM.M.020.Producao':'Valor Entrada'] = N:
+#  IF( ATTRN( 'ALL.D.Produto', !ALL.D.Produto, 'Tem Entrada' ) = 0
+#    , 0
+#    , ['COM.M.020.Producao':'Valor do Bem Total'] * ['COM.M.020.Producao':'% Entrada']
+#    );
+#
+#['COM.M.020.Producao':'Valor Financiado Total'] = N:
+#    ['COM.M.020.Producao':'Valor do Bem Total']
+#  - ['COM.M.020.Producao':'Valor Entrada'];
+#
+# --- Consolidacao correta de medidas de taxa/media (nao somar no tempo/produto/canal) ---
+['COM.M.020.Producao':'Ticket Medio'] = C:
+  ['COM.M.020.Producao':'Valor Financiado Total'] \ ['COM.M.020.Producao':'Qtd Contratos'];
+
+#['COM.M.020.Producao':'% Entrada'] = C:
+#  ['COM.M.020.Producao':'Valor Entrada'] \ ['COM.M.020.Producao':'Valor do Bem Total'];
+#
+#['COM.M.020.Producao':'% Mix Prazo'] = C:
+#  ['COM.M.020.Producao':'Qtd Contratos']
+#  \ DB( 'COM.020.Producao', !ALL.D.Safra, !ALL.D.Versao, !ALL.D.Produto, !ALL.D.Segmento, 'Qtd Contratos' );
+
+
+FEEDERS;
+
+['RE'] => ['ALL.D.Versao':'ALL.D.Versao':'Versoes Dinamicas'];
+  
+['ALL.D.Versao':'Versoes Dinamicas','COM.M.020.Producao':'Qtd Contratos'] =>
+ # ['COM.M.020.Producao':'Valor do Bem Total']
+ # , ['COM.M.020.Producao':'Valor Entrada']
+   ['COM.M.020.Producao':'Valor Financiado Total'];
+
+['ALL.D.Versao':'Versoes Dinamicas','COM.M.020.Producao':'Valor Financiado Total'] =>
+    DB( 'CRT.040.Carteira_Novos', !ALL.D.Safra, !ALL.D.Safra, !ALL.D.Versao, !ALL.D.Produto, !ALL.D.Segmento, 'Valor Financiado' );

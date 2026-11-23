@@ -1,0 +1,8 @@
+SKIPCHECK;
+
+['ALL.D.Origem':'Novos'] = N:
+  DB( 'CRT.040.Carteira_Novos', !ALL.D.Calendario, !ALL.D.Safra, !ALL.D.Versao, !ALL.D.Produto, 'Total_Segmento', !CRT.M.050.Carteira_Consolidada );
+
+['ALL.D.Origem':'Existentes'] = N:
+  DB( 'CRT.030.Carteira_Existentes', !ALL.D.Calendario, !ALL.D.Safra, !ALL.D.Versao, !ALL.D.Produto, 'Total_Segmento', !CRT.M.050.Carteira_Consolidada );
+
